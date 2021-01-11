@@ -1,0 +1,55 @@
+.padding10 {
+    padding: 10px;
+}
+
+.padding20 {
+    padding: 20px;
+}
+
+.topMargin20
+{
+    margin-top: 20px;
+}
+
+.topMargin40
+{
+    margin-top: 40px;
+}
+
+.bottomMargin20
+{
+    margin-bottom: 20px;
+}
+
+.bottomMargin40
+{
+    margin-bottom: 40px;
+}
+
+body {
+    background-image: url("/assets/images/dot-grid.png");
+    background-repeat: repeat;
+}
+
+.textbox {
+    background-color: rgba(255, 255, 255, 0.596);
+    padding: 15px;
+    position: absolute;
+    top: 250px;
+    left: 500px;
+    line-height: 0.7;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(90, 105, 107, 0.438);
+    color: white;
+    text-align: center;
+}
+
+/* img {
+    object-fit: contain !important;
+} */
