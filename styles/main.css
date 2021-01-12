@@ -6,6 +6,10 @@
     padding: 20px;
 }
 
+.topMargin10 {
+    margin-top: 10px;
+}
+
 .topMargin20 {
     margin-top: 20px;
 }
@@ -41,8 +45,8 @@ body {
     display: flex;
     padding: 18px 18px;
     background-size: 100% 100%;
-
-    background: #00599D !important;
+    font-weight: bold;
+    background: #0f76c5d0 !important;
     border-radius: 50px;
     border-top-left-radius: 0px;
     border-bottom-right-radius: 0%;
