@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="gr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/register.css">
+    <link rel="stylesheet" href="/styles/main.css">
+
+    <title>Υπουργείο Εργασίας & Κοινωνικών Υποθέσεων</title>
+</head>
+
+<body class="container text-center d-flex flex-column vh-100">
+
+    <div class="containter topMargin20 bottomMargin20">
+        <%- include('partials/navbar'); %>
+    </div>
+
+    <form action="/register" method="POST" class="form-signin mx-auto" style="max-width: 400px;">
+        <img class="mb-4" src="/assets/images/logo_govgr_pos_vertical.png" alt="" width="93" height="69">
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+            <input class="form-control" placeholder="Πλήρες ονοματεπώνυμο" type="text" name="username">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+            </div>
+            <input class="form-control" placeholder="Email TAXISNET" type="email" name="email">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+            </div>
+            <select class="custom-select" style="max-width: 120px;">
+                <option selected="">+30</option>
+                <option value="1">+31</option>
+            </select>
+            <input class="form-control" placeholder="Phone number" type="text" name="phone">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+            </div>
+            <select class="form-control" name="occupation">
+                <option selected=""> Απασχόληση </option>
+                <option>Εργαζόμενος</option>
+                <option>Εργοδότης</option>
+                <option>Συνταξιούχος</option>
+                <option>Άνεργος</option>
+            </select>
+        </div> <!-- form-group end.// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input class="form-control" placeholder="Κωδικός TAXISNET" type="password" name="password">
+        </div> <!-- form-group// -->
+        <div class="form-group">
+            <button id="btn-signup" class="btn btn-primary btn-block"> Δημιουργία Λογαριασμού </button>
+        </div> <!-- form-group// -->
+        <p class="mt-5 mb-3 text-muted">© 2020</p>
+    </form>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="/scripts/register.js"></script>
+    <!-- <script src="/scripts/main.js" type="text/javascript"></script> -->
+</body>
+
+</html>

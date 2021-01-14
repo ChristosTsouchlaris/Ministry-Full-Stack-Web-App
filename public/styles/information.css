@@ -1,0 +1,18 @@
+.textbox-covid {
+    background-color: rgba(255, 255, 255, 0.767);
+    padding: 15px;
+    position: absolute;
+    top: 260px;
+    left: 500px;
+    line-height: 0.7;
+}
+
+.card {
+    border-radius: 5%;
+}
+
+.d-2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 30px;
+}

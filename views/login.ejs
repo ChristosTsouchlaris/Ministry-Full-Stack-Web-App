@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="gr">
+
+<head>
+    <%- include('partials/head'); %>
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body class="text-center d-flex flex-column vh-100">
+    <div class="out">
+        <div class="container topMargin20 bottomMargin20">
+            <%- include('partials/navbar'); %>
+        </div>
+        
+        
+        <form  action="/login" method="POST" class="form-signin">
+            <img class="mb-4" src="/assets/images/logo_govgr_pos_vertical.png" alt="" width="93" height="69">
+            <h4 class="h3 mb-3 font-weight-normal">Παρακλώ συνδεθείτε με τα στοιχεία του taxisnet</h4>
+            <label for="inputUsername" class="sr-only">Όνομα χρήστη</label>
+            <input type="username" id="inputUsername" class="form-control" placeholder="Όνομα χρήστη" required="" autofocus="" name="username">
+            <label for="inputPassword" class="sr-only">Κωδικός πρόσβασης</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Κωδικός πρόσβασης" required="" name="password">
+            <div class="checkbox mb-3">
+                <label>
+                    <input id="checkbox-remember" type="checkbox" value="remember-me"> Θυμήσου με
+                </label>
+            </div>
+            <div class="mb-3">
+                <p>Δεν έχετε λογαριασμό;</p>
+                <a href="/register"> Κάντε εγγραφή εδώ</a>
+            </div>
+            <button id="btn-login" class="btn btn-lg btn-primary btn-block">Sign in</button>
+            <p class="mt-5 mb-3 text-muted">© 2020</p>
+        </form>
+    </div>
+    <%- include('partials/footer'); %>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="/scripts/login.js"></script>
+    <!-- <script src="/scripts/main.js" type="text/javascript"></script> -->
+</body>
+
+</html>

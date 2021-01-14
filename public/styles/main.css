@@ -1,0 +1,95 @@
+.padding10 {
+    padding: 10px;
+}
+
+.padding20 {
+    padding: 20px;
+}
+
+.topMargin10 {
+    margin-top: 10px;
+}
+
+.topMargin20 {
+    margin-top: 20px;
+}
+
+.topMargin40 {
+    margin-top: 40px;
+}
+
+.bottomMargin20 {
+    margin-bottom: 20px;
+}
+
+.bottomMargin40 {
+    margin-bottom: 40px;
+}
+
+body {
+    background-image: url("/assets/images/dot-grid.png");
+    background-repeat: repeat;
+}
+
+.textbox {
+    background-color: rgba(255, 255, 255, 0.596);
+    padding: 15px;
+    position: absolute;
+    top: 250px;
+    left: 500px;
+    line-height: 0.7;
+}
+
+.custom-navbar {
+    list-style-type: none;
+    display: flex;
+    padding: 18px 18px;
+    background-size: 100% 100%;
+    font-weight: bold;
+    background: #0f76c5d0 !important;
+    border-radius: 50px;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 0%;
+}
+
+.custom-navbar i {
+    color: azure !important;
+}
+
+.custom-nav-item a {
+    color: white !important;
+    text-decoration: none;
+    /* padding: 45px 45px; */
+    /* font-color: #fff ; */
+    font-family: 'Rubik', sans-serif;
+    font-weight: lighter;
+    /* font-size: 20px; */
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(90, 105, 107, 0.438);
+    color: white;
+    text-align: center;
+} */
+
+.footer-text-left {
+    font-size:25px;
+    padding-left:40px;
+    float:left;
+    word-spacing:20px;
+}
+
+a.menu:hover {
+    font-size:24px;
+    color: rgb(185, 102, 102);
+}
+
+/* img {
+    object-fit: contain !important;
+} */
