@@ -42,9 +42,12 @@
         <a href="/info" class="nav-item nav-link" style="color: crimson;"><b>COVID-19</b></a>
       </div>
       <div class="navbar-nav ml-auto">
+        <% if(!currentUser) {%> 
         <a href="/register" style="color: white;" class="nav-item nav-link">Εγγραφή </a>
         <a href="/login" style="color: white;" class="nav-item nav-link"> Σύνδεση</a>
+        <%} else {%> 
         <a href="/logout" style="color: white;" class="nav-item nav-link">Αποσύνδεση</a>
+        <% } %> 
         <!-- <a href="/login" style="color: white;" class="nav-item nav-link">
           <h1><i class="fas fa-user-circle"></i></h1>
         </a> -->

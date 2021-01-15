@@ -6,10 +6,12 @@ const Login = require('./models/login');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user')
-// const flash = require('req-flash');
+const session = require('express-session')
+const flash = require('connect-flash');
 
 const userRoutes = require('./routes/users')
-const info = require('./routes/info');
+const infoRoutes = require('./routes/info');
+const ministryRoutes = require('./routes/ministry');
 
 mongoose.connect('mongodb://localhost:27017/ypakp', {
     useNewUrlParser: true, 
@@ -30,18 +32,31 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
 app.use(express.static(__dirname + '/public'));
-// app.use(flash());
+app.use(flash());
 
 app.use(express.urlencoded({extended: true}))
 
-app.use('/info', info)
+const sessionConfig = {
+    secret: 'thisshouldbeabettersecret!',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true,
+        expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+        maxAge: 1000 * 60 * 60 * 24 * 7
+    }
+}
+app.use(session(sessionConfig))
 
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 
 app.use((req, res, next) => {
+    console.log(req.session)
     res.locals.currentUser = req.user;
+    res.locals.success = req.flash('success')
+    res.locals.error = req.flash('error')
     next();
 })
 
@@ -49,17 +64,11 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use('/', userRoutes);
+app.use('/info', infoRoutes)
+app.use('/', ministryRoutes)
 
 app.get('/', (req, res) => {
     res.render('home');
-})
-
-app.get('/ministry/contact', (req, res) => {
-    res.render('ministry/contact')
-})
-
-app.get('/ministry/rendezvous', (req, res) => {
-    res.render('ministry/rendezvous')
 })
 
 app.get('/test', async (req, res) => {
@@ -68,6 +77,13 @@ app.get('/test', async (req, res) => {
     res.send(log)
 })
 
+app.get('/secret', async (req, res) => {
+    if(!req.isAuthenticated()) {
+        req.flash('error', 'You must be signed in');
+        return res.redirect('/login')
+    }
+    res.send('SECRET')
+})
 app.listen(3000, () => {
     console.log('Serving on port 3000')
 })

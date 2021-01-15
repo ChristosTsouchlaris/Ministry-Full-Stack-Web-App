@@ -17,12 +17,13 @@
     <title>Υπουργείο Εργασίας & Κοινωνικών Υποθέσεων</title>
 </head>
 
-<body class="container text-center d-flex flex-column vh-100">
-
-    <div class="containter topMargin20 bottomMargin20">
+<body class="text-center d-flex flex-column vh-100">
+    <div class="container">
+    <div class="topMargin20 bottomMargin20">
         <%- include('partials/navbar'); %>
     </div>
 
+    <%- include('partials/flash'); %>
     <form action="/register" method="POST" class="form-signin mx-auto" style="max-width: 400px;">
         <img class="mb-4" src="/assets/images/logo_govgr_pos_vertical.png" alt="" width="93" height="69">
         <div class="form-group input-group">
@@ -70,6 +71,9 @@
         </div> <!-- form-group// -->
         <p class="mt-5 mb-3 text-muted">© 2020</p>
     </form>
+    </div>
+
+    <%- include('partials/footer'); %>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

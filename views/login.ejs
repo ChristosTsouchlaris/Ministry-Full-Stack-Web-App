@@ -8,12 +8,12 @@
 </head>
 
 <body class="text-center d-flex flex-column vh-100">
-    <div class="out">
-        <div class="container topMargin20 bottomMargin20">
+    <div class="container">
+        <div class="topMargin20 bottomMargin20">
             <%- include('partials/navbar'); %>
         </div>
         
-        
+        <%- include('partials/flash'); %>
         <form  action="/login" method="POST" class="form-signin">
             <img class="mb-4" src="/assets/images/logo_govgr_pos_vertical.png" alt="" width="93" height="69">
             <h4 class="h3 mb-3 font-weight-normal">Παρακλώ συνδεθείτε με τα στοιχεία του taxisnet</h4>
