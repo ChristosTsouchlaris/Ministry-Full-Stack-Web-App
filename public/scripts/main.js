@@ -1,7 +1,7 @@
 const infoButton = document.querySelector(".btn-info");
 if(infoButton) {
     infoButton.addEventListener("click", (e) => {
-        window.location.href = "/info";
+        window.location.href = "/info/info-general";
     })
 }
 const employerButton = document.querySelector("#btn-employer");
