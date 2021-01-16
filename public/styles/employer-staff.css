@@ -1,0 +1,8 @@
+td i {
+    width: fit-content;
+}
+
+td i:hover {
+    cursor: pointer;
+    color: rgb(7, 218, 7);
+}

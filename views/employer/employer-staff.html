@@ -13,8 +13,26 @@
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/information.css">
-
+    <link rel="stylesheet" href="/styles/employer-staff.css">
     <title>Υπουργείο Εργασίας & Κοινωνικών Υποθέσεων</title>
+
+
+    <!-- CHRIS & MIKE TEMPORARY CSS 16.01.2021 START -->
+    <!-- TODO : TRANSFER TO ABOVE employer-staff.css FILE -->
+
+    <style>
+      td i {
+        width: fit-content;
+      }
+
+      td i:hover {
+        cursor: pointer;
+        color: rgb(7, 218, 7);
+      }
+    </style>
+
+    <!-- CHRIS & MIKE TEMPORARY CSS 16.01.2021 END -->
+
 </head>
 
 <body>
@@ -98,28 +116,37 @@
                         <tr>
                             <th scope="col">Όνομα</th>
                             <th scope="col">Επώνυμο</th>
-                            <th scope="col">Όνομα Πατρός</th>
-                            <th scope="col">Όνομα Μητρός</th>
                             <th scope="col">ΑΦΜ</th>
-                            <th scope="col">ΑΜΚΑ</th>
+                            <!-- <th scope="col">ΑΜΚΑ</th> -->
                             <th scope="col">Τηλέφωνο</th>
                             <th scope="col">Ηλεκτρονική Διεύθυνση</th>
                             <th scope="col">Κατάσταση εργασίας</th>
+                            <th scope="col">Επιλογές</th>
+                            <th scope="col">Από</th>
+                            <th scope="col">Μέχρι</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>ΧΡΗΣΤΟΣ</td>
                             <td>ΤΣΟΥΧΛΑΡΗΣ</td>
-                            <td>ΑΝΔΡΕΑΣ</td>
-                            <td>ΑΙΚΑΤΕΡΙΝΗ</td>
                             <td>4564654</td>
-                            <td>4587814578</td>
+                            <!-- <td>4587814578</td> -->
                             <td>6982936744</td>
                             <td>chris@tsouchlaris.com</td>
                             <td>Εργαζόμενος</td>
-                        </tr>
-                        <tr>
+                            <td>
+                              <select class="browser-default custom-select">
+                                <option selected="">Επιλέξτε δράση</option>
+                                <option value="1">Τηλεργασία</option>
+                                <option value="2">Αναστολή σύμβασης εργασίας</option>
+                              </select></td>
+                            <td><input type="date"></td>
+                            <td><input type="date"></td>
+                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                          </tr>                        
+                        <!-- <tr>
                             <td>ΚΩΣΤΑΝΤΙΝΟΣ</td>
                             <td>ΜΕΡΕΟΣ</td>
                             <td>ΛΑΚΗΣ</td>
@@ -129,6 +156,7 @@
                             <td>69563281</td>
                             <td>kostas@mereos.com</td>
                             <td>Εργαζόμενος</td>
+                            
                         </tr>
                         <tr>
                             <td>ΜΙΧΑΛΗΣ</td>
@@ -140,7 +168,7 @@
                             <td>69563256</td>
                             <td>mike@bakalianos.com</td>
                             <td>Εργαζόμενος</td>
-                        </tr>                            
+                        </tr>                             -->
                     </tbody>
                 </table>
             </div>
