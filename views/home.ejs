@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="container topMargin40 bottomMargin40">
+    <!-- <div class="container topMargin40 bottomMargin40">
       <div class="d-flex flex-row justify-content-center">
         <div class="btn-group-lg" role="group" aria-label="Basic example">
           <button id="btn-employer" type="button" class="btn btn-outline-warning" href="#">Είμαι εργοδότης</button>
@@ -33,16 +33,99 @@
           <button type="button" class="btn btn-outline-danger" href="#">Α.Μ.Ε.Α.</button>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 
-  <%- include('partials/footer'); %>
+  <div class="features-boxed">
+    <div class="container" >
+      <div class="row justify-content-center features">
+        <div class="col-sm-6 col-md-5 col-lg-3 item" data-aos="fade" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
+          <div class="box">
+            <h3 class="name">Είμαι εργοδότης</h3>
+            <p class="description">Ό,τι χρειάζεσαι να γνωρίζεις, εάν είσαι εργοδότης (π.χ. να θέσεις εργαζόμενο από το σπίτι) βρίσκεται μόνο σε μία σελίδα πλέον. </p>
+            <!-- <a class="learn-more" href="#">Μάθετε Περισσότερα »</a> -->
+            <button type="button" class="btn btn-outline-primary" href="#">Μάθετε περισσότερα</button>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-5 col-lg-3 item" data-aos="fade" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
+          <div class="box">
+            <h3 class="name">Είμαι άνεργος</h3>
+            <p class="description">Είσαι άνεργος και ενδιαφέρεσαι να μάθεις για νέες θέσεις, επιδόματα και διευκολύνσεις; Είσαι στη σωστή σελίδα. Ο,τι σε αφορά είναι εδώ!  </p>
+            <!-- <a class="learn-more" href="#">Μάθετε Περισσότερα »</a> -->
+            <button type="button" class="btn btn-outline-primary" href="#">Μάθετε περισσότερα</button>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-5 col-lg-3 item" data-aos="fade" data-aos-duration="500" data-aos-delay="700" data-aos-once="true">
+          <div class="box">
+            <h3 class="name">Είμαι εργαζόμενος</h3>
+            <p class="description">Μάθετε τα πάντα για τα εργασιακά σου δικαιώματα, τις άδειες σου, μέχρι τις μέρες που σε έχει θέσει ο εργοδότης ως τηλεργαζόμενο !</p>
+            <!-- <a class="learn-more" href="#">Μάθετε Περισσότερα »</a> -->
+            <button type="button" class="btn btn-outline-primary" href="#">Μάθετε περισσότερα</button>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-5 col-lg-3 item" data-aos="fade" data-aos-duration="500" data-aos-delay="700" data-aos-once="true">
+          <div class="box">
+            <h3 class="name">Α.Μ.Ε.Α.</h3>
+            <p class="description">Μάθε τα πάντα σχετικά με διευκολύνσεις, θέσεις εργασίας καθώς και για όλα τα εργασιακά σου δικαιώματα  ανά πάσα στιγμή</p>
+            <!-- <a class="learn-more" href="#">Μάθετε Περισσότερα »</a> -->
+            <button type="button" class="btn btn-outline-primary" href="#">Μάθετε περισσότερα</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="newsletter-subscribe">
+    <div class="container">
+      <div class="intro">
+        <h2 class="text-center edit">Μάθε τα νέα μας</h2>
+        <p class="text-center edit">Εγγράψου στο Newsletter του Υπουργείου και θα ενημερώνεσαι για ό,τι νέο ψηφίζεται </p>
+      </div>
+      <form class="form-inline" method="post">
+        <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Το e-mail σου"></div>
+        <div class="form-group"><button class="btn btn-primary edit" type="button" style="background: rgba(0,0,0,0);">Subscribe </button></div>
+      </form>
+    </div>
+  </div>
+  <!-- <%- include('partials/footer'); %> -->
   <!-- <div class="footer">
         <p>Footer</p>
     </div> -->
 
-
+    <div class="footer-clean">
+      <footer>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-sm-4 col-md-3 item">
+              <h3>Services</h3>
+              <ul>
+                <li><a href="#">Web design</a></li>
+                <li><a href="#">Development</a></li>
+                <li><a href="#">Hosting</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 col-md-3 item">
+              <h3>About</h3>
+              <ul>
+                <li><a href="#">Company</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Legacy</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-4 col-md-3 item">
+              <h3>Careers</h3>
+              <ul>
+                <li><a href="#">Job openings</a></li>
+                <li><a href="#">Employee success</a></li>
+                <li><a href="#">Benefits</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 item"><p class="copyright">DI © 2021</p>
+            </div>
+          </div>
+        </div>
+      </footer>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
