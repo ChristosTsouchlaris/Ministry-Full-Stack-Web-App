@@ -174,8 +174,8 @@ a.menu:hover {
 .features-boxed,
 .team-boxed,
 .testimonials-clean {
-  color: #313437;
-  background-color: #eef4f7;
+  /* color: #313437;
+  background-color: #eef4f7; */
 }
 .features-boxed p,
 .highlight-phone p,
@@ -223,7 +223,7 @@ a.menu:hover {
 }
 .features-boxed .item .icon {
   font-size: 60px;
-  color: #1485ee;
+  /* color: #1485ee; */
   margin-top: 20px;
   margin-bottom: 35px;
 }
@@ -241,9 +241,9 @@ a.menu:hover {
   margin-bottom: 20px;
 }
 .footer-clean {
-  padding: 50px 0;
-  background-color: #fff;
-  color: #4b4c4d;
+  padding: 60px 0;
+  /* background-color: #fff; */
+  /* color: #4b4c4d; */
 }
 .footer-clean h3 {
   margin-top: 0;
