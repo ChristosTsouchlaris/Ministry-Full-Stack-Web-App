@@ -71,6 +71,10 @@ app.get('/', (req, res) => {
     res.render('home');
 })
 
+app.get('/under_construction', (req, res) => {
+    res.render('under-construction');
+})
+
 app.get('/test', async (req, res) => {
     const log = new Login({name: "Kostas", password: "sdsd"});
     await log.save();
@@ -84,6 +88,7 @@ app.get('/secret', async (req, res) => {
     }
     res.send('SECRET')
 })
+
 app.listen(3000, () => {
     console.log('Serving on port 3000')
 })
