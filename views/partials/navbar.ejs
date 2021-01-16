@@ -1,65 +1,37 @@
-<nav class="custom-navbar navbar-expand-md navbar-light bg-light">
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-      <div class="navbar-nav">
-        <div class="nav-item dropdown">
-          <a href="#" style="color: white;" class="nav-link dropdown-toggle custom-nav-item"
-            data-toggle="dropdown">Υπουργείο</a>
-          <div class="dropdown-menu">
-            <a href="#" class="dropdown-item">Inbox</a>
-            <a href="#" class="dropdown-item">Sent</a>
-            <a href="#" class="dropdown-item">Drafts</a>
-          </div>
-        </div>
-        <div class="nav-item dropdown">
-          <a href="#" style="color: white;" class="nav-link dropdown-toggle" data-toggle="dropdown">Θέματα</a>
-          <div class="dropdown-menu">
-            <a href="#" class="dropdown-item">Inbox</a>
-            <a href="#" class="dropdown-item">Sent</a>
-            <a href="#" class="dropdown-item">Drafts</a>
-          </div>
-        </div>
-        <div class="nav-item dropdown">
-          <a href="#" style="color: white;" class="nav-link dropdown-toggle" data-toggle="dropdown">Οργανισμοί</a>
-          <div class="dropdown-menu">
-            <a href="#" class="dropdown-item">Inbox</a>
-            <a href="#" class="dropdown-item">Sent</a>
-            <a href="#" class="dropdown-item">Drafts</a>
-          </div>
-        </div>
-        <div class="nav-item dropdown">
-          <a href="#" style="color: white;" class="nav-link dropdown-toggle" data-toggle="dropdown">Νομοθεσία</a>
-          <div class="dropdown-menu">
-            <a href="#" class="dropdown-item">Inbox</a>
-            <a href="#" class="dropdown-item">Sent</a>
-            <a href="#" class="dropdown-item">Drafts</a>
-          </div>
-        </div>
-        <a href="#" style="color: white;" class="nav-item nav-link">Νέα</a>
-        <a href="/myypakp.html" style="color: white;" class="nav-item nav-link">My ypakp</a>
-        <a href="/info" class="nav-item nav-link" style="color: crimson;"><b>COVID-19</b></a>
-      </div>
-      <div class="navbar-nav ml-auto">
-        <% if(!currentUser) {%> 
-        <a href="/register" style="color: white;" class="nav-item nav-link">Εγγραφή </a>
-        <a href="/login" style="color: white;" class="nav-item nav-link"> Σύνδεση</a>
-        <%} else {%> 
-        <a href="/logout" style="color: white;" class="nav-item nav-link">Αποσύνδεση</a>
-        <% } %> 
-        <!-- <a href="/login" style="color: white;" class="nav-item nav-link">
-          <h1><i class="fas fa-user-circle"></i></h1>
-        </a> -->
-      </div>
-      <!-- <form class="form-inline">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search">
-          <div class="input-group-append">
-            <button style="color: white;" type="button" class="btn btn-secondary"><i
-                class="fa fa-search"></i></button>
-          </div>
-        </div>
-      </form> -->
+<nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+  <div class="container"> <img src="/assets/images/logo.png" width="300" height="60"><button data-toggle="collapse"
+      class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+        class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navcol-1">
+      <ul class="nav navbar-nav mr-auto">
+
+        <li class="nav-item dropdown"><a class="dropdown nav-link " data-toggle="dropdown" aria-expanded="false"
+            href="#">Υπουργείο </a>
+          <div class="dropdown-menu dropdown menu-content"><a class="dropdown-item" href="#">First Item</a>
+            <a class="dropdown-item" href="#">Second Item</a>
+            <a class="dropdown-item" href="#">Third Item</a></div>
+        </li>
+        <li class="nav-item dropdown"><a class="dropdown nav-link " data-toggle="dropdown" aria-expanded="false"
+            href="#">Θέματα </a>
+          <div class="dropdown-menu dropdown menu-content"><a class="dropdown-item" href="#">First Item</a>
+            <a class="dropdown-item" href="#">Second Item</a>
+            <a class="dropdown-item" href="#">Third Item</a></div>
+        </li>
+        <li class="nav-item"><a class="nav-link " href="#">Επικοινωνία</a></li>
+
+        <li class="nav-item"><a class="nav-link " href="#">myypakp</a></li>
+        <li class="nav-item"><a class="nav-link " style="color: crimson !important; font-weight: bold;" href="info/info-general">COVID
+            19</a></li>
+      </ul>
+      <span class="navbar-text actions">
+        <% if(!currentUser) {%>
+        <a class="btn btn-light action-button" role="button" href="/register" style="background: rgb(30,106,221); margin-right: 5px;">Εγγραφή</a>
+        
+        <a class="login" href="/login">Σύνδεση</a>
+        <%} else {%>
+        <a class="login" href="/logout">Αποσύνδεση</a>
+        <% } %>
+      </span>
     </div>
-  </nav>
+  </div>
+</nav>
