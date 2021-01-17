@@ -67,7 +67,6 @@ body {
     letter-spacing: 1px;
     opacity: 0.9;
 }
-
 /* .footer {
     position: fixed;
     left: 0;
@@ -85,16 +84,17 @@ body {
     word-spacing:20px;
 }
 
-a.menu:hover {
+/* a.menu:hover {
     font-size:24px;
     color: rgb(185, 102, 102);
-}
+} */
 
 /* img {
     object-fit: contain !important;
 } */
 
 /* NEW NAVBAR MIKE 16.01.2021 START */
+
 
 .contact-clean,
 .register-photo {
@@ -504,9 +504,10 @@ a.menu:hover {
   font-size: 14px;
   color: #37434d;
 }
+
 .navigation-clean-button .dropdown-menu .dropdown-item:focus,
 .navigation-clean-button .dropdown-menu .dropdown-item:hover {
-  background: #eee;
+  background: rgb(0, 163, 222); /* afto einai gia to backgorund otan kanoume hover sta dropdown tou nav */
   color: inherit;
 }
 .navigation-clean-button.navbar-dark {
@@ -546,6 +547,7 @@ a.menu:hover {
   display: block;
   margin-top: 0; 
 }
+
 .navigation-clean-button .navbar-text .action-button,
 .navigation-clean-button .navbar-text .action-button:active,
 .navigation-clean-button .navbar-text .action-button:hover {
