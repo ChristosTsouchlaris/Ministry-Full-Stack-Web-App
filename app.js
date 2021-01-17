@@ -78,6 +78,13 @@ app.get('/employee', (req, res) => {
 app.get('/employer', (req, res) => {
     res.render('employer/employer');
 })
+app.get('/employer_profile' , (req, res) => {
+    res.render('employerProfile/employer');
+})
+
+app.get('/employer_profile/employer_staff' , (req, res) => {
+    res.render('employerProfile/employer-staff');
+})
 
 app.get('/under_construction', (req, res) => {
     res.render('under-construction');
@@ -97,6 +104,6 @@ app.get('/secret', async (req, res) => {
     res.send('SECRET')
 })
 
-app.listen(3000, () => {
-    console.log('Serving on port 3000')
+app.listen(8080, () => {
+    console.log('Serving on port 8080')
 })
