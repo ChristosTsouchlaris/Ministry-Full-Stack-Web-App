@@ -174,8 +174,8 @@ body {
 .features-boxed,
 .team-boxed,
 .testimonials-clean {
-  /* color: #313437;
-  background-color: #eef4f7; */
+  color: #0088ff;
+  /* background-color: #eef4f7; */
 }
 .features-boxed p,
 .highlight-phone p,
@@ -812,7 +812,7 @@ body {
 }
 .testimonials-clean .item .box {
   padding: 30px;
-  background-color: #fff;
+  background-color: rgb(216, 216, 216);
   position: relative;
 }
 .testimonials-clean .item .box:after {
@@ -824,7 +824,7 @@ body {
   height: 0;
   border: 15px solid transparent;
   border-width: 12px 15px;
-  border-top-color: #fff;
+  border-top-color: rgb(216, 216, 216);
 }
 .testimonials-clean .item .author {
   margin-top: 28px;
