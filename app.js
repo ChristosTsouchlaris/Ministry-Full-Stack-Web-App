@@ -53,8 +53,9 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 
 app.use((req, res, next) => {
-    console.log(req.session)
+    // console.log(req.session)
     res.locals.currentUser = req.user;
+    console.log(res.locals.currentUser);
     res.locals.success = req.flash('success')
     res.locals.error = req.flash('error')
     next();
@@ -78,12 +79,17 @@ app.get('/employee', (req, res) => {
 app.get('/employer', (req, res) => {
     res.render('employer/employer');
 })
+
 app.get('/employer_profile' , (req, res) => {
     res.render('employerProfile/employer');
 })
 
 app.get('/employer_profile/employer_staff' , (req, res) => {
     res.render('employerProfile/employer-staff');
+})
+
+app.get('/employee_profile' , (req, res) => {
+    res.render('employeeProfile/employee');
 })
 
 app.get('/under_construction', (req, res) => {

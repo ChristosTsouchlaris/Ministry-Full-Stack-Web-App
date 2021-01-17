@@ -27,8 +27,12 @@
           </div>
         </li>
         <li class="nav-item"><a class="nav-link " href="/ministry/contact">Επικοινωνία</a></li>
-
+        <% if(currentUser && currentUser.occupation === 'Εργοδότης') {%> 
         <li class="nav-item"><a class="nav-link " href="/employer_profile">Προφίλ</a></li>
+        <% } %>
+        <% if(currentUser && currentUser.occupation === 'Εργαζόμενος') {%> 
+          <li class="nav-item"><a class="nav-link " href="/employee_profile">Προφίλ</a></li>
+        <% } %>  
         <li class="nav-item"><a class="nav-link " style="color: crimson !important; font-weight: bold;" href="/info/info-general">COVID
             19</a></li>
       </ul>
