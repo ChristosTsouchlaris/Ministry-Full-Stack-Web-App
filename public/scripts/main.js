@@ -5,7 +5,18 @@ if(infoButton) {
     })
 }
 const employerButton = document.querySelector("#btn-employer");
+if(employerButton) {
+    employerButton.addEventListener("click", (e) => {
+        window.location.href = "/employer";
+    })
+}
+
 const employeeButton = document.querySelector("#btn-employee");
+if(employeeButton) {
+    employeeButton.addEventListener("click", (e) => {
+        window.location.href = "/employee";
+    })
+}
 
 
 $(document).ready((function(){AOS.init({disable:"mobile"})}));

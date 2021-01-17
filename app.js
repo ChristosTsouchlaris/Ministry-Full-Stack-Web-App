@@ -71,6 +71,14 @@ app.get('/', (req, res) => {
     res.render('home');
 })
 
+app.get('/employee', (req, res) => {
+    res.render('employee/employee');
+})
+
+app.get('/employer', (req, res) => {
+    res.render('employer/employer');
+})
+
 app.get('/under_construction', (req, res) => {
     res.render('under-construction');
 })
