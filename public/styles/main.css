@@ -551,7 +551,7 @@ body {
 .navigation-clean-button .navbar-text .action-button,
 .navigation-clean-button .navbar-text .action-button:active,
 .navigation-clean-button .navbar-text .action-button:hover {
-  background: #56c6c6;
+  background: #047070;
   border-radius: 20px;
   font-size: inherit;
   color: #fff;
@@ -845,6 +845,12 @@ body {
   margin-right: 12px;
   margin-top: -5px;
 }
+
+/* .menu-content .dropdown-item:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+} */
 
 
 /* NEW NAVBAR MIKE 16.01.2021 END */
