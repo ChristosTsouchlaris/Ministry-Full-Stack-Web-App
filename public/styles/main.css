@@ -1,6 +1,7 @@
 .padding10 {
     padding: 10px;
-}
+} 
+
 
 .padding20 {
     padding: 20px;
@@ -214,11 +215,12 @@ body {
 .team-boxed .item {
   text-align: center;
 }
-.features-boxed .item .box,
+.features-boxed .item .box, 
 .team-boxed .item .box {
+  border-radius: 20%; /* modify ta boxes poy lene gia to eimaie ergodotis ktl .. xroma,kyrtotita */
   text-align: center;
   padding: 30px;
-  background-color: #fff;
+  background-color: rgb(235, 235, 235);
   margin-bottom: 30px;
 }
 .features-boxed .item .icon {
@@ -811,20 +813,21 @@ body {
   }
 }
 .testimonials-clean .item .box {
+  border-radius:90%;
   padding: 30px;
-  background-color: rgb(216, 216, 216);
+  background-color: rgb(235, 235, 235);
   position: relative;
 }
 .testimonials-clean .item .box:after {
   content: "";
   position: absolute;
-  left: 30px;
+  left: 50px;
   bottom: -24px;
   width: 0;
   height: 0;
-  border: 15px solid transparent;
-  border-width: 12px 15px;
-  border-top-color: rgb(216, 216, 216);
+  border: 125px solid transparent;
+  border-width: 24px 40px;
+  border-top-color:rgb(235, 235, 235);
 }
 .testimonials-clean .item .author {
   margin-top: 28px;
