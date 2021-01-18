@@ -2,83 +2,83 @@
 <html lang="gr">
 
 <head>
-    <%- include('../partials/head'); %>
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/information.css">
-    <link rel="stylesheet" href="/styles/employer-staff.css">
+  <%- include('../partials/head'); %>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/information.css">
+  <link rel="stylesheet" href="/styles/employer-staff.css">
 
-    <!-- CHRIS & MIKE TEMPORARY CSS 16.01.2021 START -->
-    <!-- TODO : TRANSFER TO ABOVE employer-staff.css FILE -->
+  <!-- CHRIS & MIKE TEMPORARY CSS 16.01.2021 START -->
+  <!-- TODO : TRANSFER TO ABOVE employer-staff.css FILE -->
 
-    <style>
-      td i {
-        width: fit-content;
-      }
+  <style>
+    td i {
+      width: fit-content;
+    }
 
-      td i:hover {
-        cursor: pointer;
-        color: rgb(7, 218, 7);
-      }
-    </style>
+    td i:hover {
+      cursor: pointer;
+      color: rgb(7, 218, 7);
+    }
+  </style>
 
-    <!-- CHRIS & MIKE TEMPORARY CSS 16.01.2021 END -->
+  <!-- CHRIS & MIKE TEMPORARY CSS 16.01.2021 END -->
 
 </head>
 
 <body class="d-flex flex-column vh-100 ">
-    <div class="container">
-        <div class="topMargin20 bottomMargin20">
-          <%- include('../partials/navbar'); %>
-        </div>
+  <div class="container">
+    <div class="topMargin20 bottomMargin20">
+      <%- include('../partials/navbar'); %>
+    </div>
 
-        <div class="container topMargin20 bottomMargin20">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Αρχική</a></li>
-                    <li class="breadcrumb-item"><a href="/employer_profile/">Το προφίλ μου</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Οι υπάλληλοι μου</li>
-                </ol>
-            </nav>
-        </div>
+    <div class="container topMargin20 bottomMargin20">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Αρχική</a></li>
+          <li class="breadcrumb-item"><a href="/employer_profile/">Το προφίλ μου</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Οι υπάλληλοι μου</li>
+        </ol>
+      </nav>
+    </div>
 
-        <div class="container topMargin40 bottomMargin40">
-            <div class="d-flex flex-row justify-content-around">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Όνομα</th>
-                            <th scope="col">Επώνυμο</th>
-                            <th scope="col">ΑΦΜ</th>
-                            <!-- <th scope="col">ΑΜΚΑ</th> -->
-                            <th scope="col">Τηλέφωνο</th>
-                            <th scope="col">Ηλεκτρονική Διεύθυνση</th>
-                            <th scope="col">Κατάσταση εργασίας</th>
-                            <th scope="col">Επιλογές</th>
-                            <th scope="col">Από</th>
-                            <th scope="col">Μέχρι</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>ΧΡΗΣΤΟΣ</td>
-                            <td>ΤΣΟΥΧΛΑΡΗΣ</td>
-                            <td>4564654</td>
-                            <!-- <td>4587814578</td> -->
-                            <td>6982936744</td>
-                            <td>chris@tsouchlaris.com</td>
-                            <td>Εργαζόμενος</td>
-                            <td>
-                              <select class="browser-default custom-select">
-                                <option selected="">Επιλέξτε δράση</option>
-                                <option value="1">Τηλεργασία</option>
-                                <option value="2">Αναστολή σύμβασης εργασίας</option>
-                              </select></td>
-                            <td><input type="date"></td>
-                            <td><input type="date"></td>
-                            <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                          </tr>                        
-                        <!-- <tr>
+    <div class="container topMargin40 bottomMargin40">
+      <div class="d-flex flex-row justify-content-around">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Όνομα</th>
+              <th scope="col">Επώνυμο</th>
+              <th scope="col">ΑΦΜ</th>
+              <!-- <th scope="col">ΑΜΚΑ</th> -->
+              <th scope="col">Τηλέφωνο</th>
+              <th scope="col">Ηλεκτρονική Διεύθυνση</th>
+              <th scope="col">Κατάσταση εργασίας</th>
+              <th scope="col">Επιλογές</th>
+              <th scope="col">Από</th>
+              <th scope="col">Μέχρι</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ΧΡΗΣΤΟΣ</td>
+              <td>ΤΣΟΥΧΛΑΡΗΣ</td>
+              <td>4564654</td>
+              <!-- <td>4587814578</td> -->
+              <td>6982936744</td>
+              <td>chris@tsouchlaris.com</td>
+              <td>Εργαζόμενος</td>
+              <td>
+                <select class="browser-default custom-select">
+                  <option selected="">Επιλέξτε δράση</option>
+                  <option value="1">Τηλεργασία</option>
+                  <option value="2">Αναστολή σύμβασης εργασίας</option>
+                </select></td>
+              <td><input type="date"></td>
+              <td><input type="date"></td>
+              <td><i class="fa fa-check" aria-hidden="true"></i></td>
+            </tr>
+            <!-- <tr>
                             <td>ΚΩΣΤΑΝΤΙΝΟΣ</td>
                             <td>ΜΕΡΕΟΣ</td>
                             <td>ΛΑΚΗΣ</td>
@@ -101,35 +101,61 @@
                             <td>mike@bakalianos.com</td>
                             <td>Εργαζόμενος</td>
                         </tr>                             -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
+          </tbody>
+        </table>
 
+
+      </div>
     </div>
 
-    <%- include('../partials/footer'); %>
+    <div class="container topMargin40 bottomMargin40">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="p-2">
+          <button type="button" id="btnNewEmployee" class="btn btn-primary">ΔΗΜΙΟΥΡΓΙΑ ΝΕΟΥ ΥΠΑΛΛΗΛΟΥ</button>
+        </div>
+        <div class="p-2">
+          <form id="formNewEmployee" style="visibility: hidden;">
+            <div class="form-group">
+              <label for="AFM"><b>Εισάγετε το ΑΦΜ του καινούργιου υπαλλήλου</b></label>
+              <input type="text" class="form-control" id="inputAFM" aria-describedby="emailHelp"
+                placeholder="Enter email">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('../partials/footer'); %>
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
-    <script src="/scripts/main.js" type="text/javascript"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+  <script src="/scripts/main.js" type="text/javascript"></script>
 
-    <script>
-      var submitButton = document.querySelector("td i");
-      submitButton.addEventListener('click', (e) => {
-        alert("HELLO KOSTAS!!!");
-      })
-    </script>
+  <script>
+    var btnNewEmployee = document.querySelector("#btnNewEmployee");
+    var formNewEmployee = document.querySelector("#formNewEmployee");
+
+    btnNewEmployee.addEventListener("click", (e) => {
+      e.preventDefault();
+      formNewEmployee.style.visibility = "visible";
+    })
+
+    var submitButton = document.querySelector("td i");
+    submitButton.addEventListener('click', (e) => {
+      alert("HELLO KOSTAS!!!");
+    })
+  </script>
 </body>
 
 </html>
