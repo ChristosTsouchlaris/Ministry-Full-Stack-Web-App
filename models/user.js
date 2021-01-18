@@ -12,7 +12,7 @@ const UserSchema = new Schema({
         type: String,
         // required: true
     },
-    afm: {
+    amka: {
         type: String,
         required: true
     },
