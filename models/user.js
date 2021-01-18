@@ -12,6 +12,10 @@ const UserSchema = new Schema({
         type: String,
         // required: true
     },
+    afm: {
+        type: String,
+        required: true
+    },
     occupation: {
         type: String,
         // required: true
