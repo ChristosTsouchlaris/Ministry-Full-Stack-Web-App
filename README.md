@@ -9,7 +9,7 @@
 ### About 
 * This is a full-stack project to represent a better edition of the Greece's Ministry of Labor and Social Affairs website.
 * In this project we have used HTML, CSS, JAVASCRIPT, MongoDB and NodeJS for both launching front-end and back-end 
-* 
+
 ### Contributros
  
 * [Mereos Konstantinos](https://github.com/mereosk) 
