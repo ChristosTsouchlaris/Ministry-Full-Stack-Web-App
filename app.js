@@ -84,11 +84,11 @@ app.get('/employer', (req, res) => {
     res.render('employer/employer');
 })
 
-app.get('/employer_profile' , (req, res) => {
+app.get('/employer_profile/:id' , (req, res) => {
     res.render('employerProfile/employer');
 })
 
-app.get('/employer_profile/employer_staff' , (req, res) => {
+app.get('/employer_profile/:id/employer_staff' , (req, res) => {
     res.render('employerProfile/employer-staff');
 })
 
