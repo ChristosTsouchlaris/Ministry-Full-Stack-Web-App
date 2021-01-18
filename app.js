@@ -92,7 +92,7 @@ app.get('/employer_profile/:id/employer_staff' , (req, res) => {
     res.render('employerProfile/employer-staff');
 })
 
-app.get('/employee_profile' , (req, res) => {
+app.get('/employee_profile/:id' , (req, res) => {
     res.render('employeeProfile/employee');
 })
 

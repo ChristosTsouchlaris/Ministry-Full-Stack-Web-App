@@ -31,7 +31,7 @@
         <li class="nav-item"><a class="nav-link " href="/employer_profile/<%- currentUser._id %> ">Προφίλ</a></li>
         <% } %>
         <% if(currentUser && currentUser.occupation === 'Εργαζόμενος') {%> 
-          <li class="nav-item"><a class="nav-link " href="/employee_profile">Προφίλ</a></li>
+          <li class="nav-item"><a class="nav-link " href="/employee_profile/<%- currentUser._id %>">Προφίλ</a></li>
         <% } %>  
         <li class="nav-item"><a class="nav-link " style="color: crimson !important; font-weight: bold;" href="/info/info-general">COVID
             19</a></li>
