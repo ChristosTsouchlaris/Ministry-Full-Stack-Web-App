@@ -13,6 +13,5 @@
 ### Contributros
 
 [Mereos Konstantinos](https://github.com/mereosk)
-
-[Bakalianos Michail](https://github.com/bakalianosm)
-[Christos Tsouchlaris](https://github.com/ChristosTsouchlaris)
+[Bakalianos Michail] (https://github.com/bakalianosm)
+[Christos Tsouchlaris] (https://github.com/ChristosTsouchlaris)
