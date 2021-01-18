@@ -12,4 +12,4 @@
 
 ### Contributros
 
-[Mereos Konstantinos](#https://github.com/bakalianosm)
+[Mereos Konstantinos](https://github.com/bakalianosm)
