@@ -12,6 +12,8 @@ const flash = require('connect-flash');
 const userRoutes = require('./routes/users')
 const infoRoutes = require('./routes/info');
 const ministryRoutes = require('./routes/ministry');
+const employeeRoutes = require('./routes/employee');
+const employerRoutes = require('./routes/employer');
 
 mongoose.connect('mongodb://localhost:27017/ypakp', {
     useNewUrlParser: true, 
@@ -67,33 +69,11 @@ passport.deserializeUser(User.deserializeUser());
 app.use('/', userRoutes);
 app.use('/info', infoRoutes)
 app.use('/', ministryRoutes)
+app.use('/', employerRoutes)
+app.use('/', employeeRoutes)
 
 app.get('/', (req, res) => {
     res.render('home');
-})
-
-app.get('/employee', (req, res) => {
-    res.render('employee/employee');
-})
-
-app.get('/employee-specific-leave-form.ejs', (req, res) => {
-    res.render('employee/employee-specific-leave-form.ejs');
-})
-
-app.get('/employer', (req, res) => {
-    res.render('employer/employer');
-})
-
-app.get('/employer_profile' , (req, res) => {
-    res.render('employerProfile/employer');
-})
-
-app.get('/employer_profile/employer_staff' , (req, res) => {
-    res.render('employerProfile/employer-staff');
-})
-
-app.get('/employee_profile' , (req, res) => {
-    res.render('employeeProfile/employee');
 })
 
 app.get('/under_construction', (req, res) => {
