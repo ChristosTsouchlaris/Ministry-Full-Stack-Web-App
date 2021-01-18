@@ -11,7 +11,7 @@
 * In this project we have used HTML, CSS, JAVASCRIPT and NodeJS for both launching front-end and back-end 
 
 ### Contributros
-
-[Mereos Konstantinos](https://github.com/mereosk)
-[Bakalianos Michail] (https://github.com/bakalianosm)
-[Christos Tsouchlaris] (https://github.com/ChristosTsouchlaris)
+ 
+[Mereos Konstantinos](https://github.com/mereosk) <br>
+[Bakalianos Michail](https://github.com/bakalianosm)  <br>
+[Christos Tsouchlaris](https://github.com/ChristosTsouchlaris)  <br>
