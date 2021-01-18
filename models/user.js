@@ -15,7 +15,13 @@ const UserSchema = new Schema({
     occupation: {
         type: String,
         // required: true
-    }
+    },
+    employers: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ]
 })
 
 UserSchema.plugin(passportLocalMongoose);
