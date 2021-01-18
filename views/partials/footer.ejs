@@ -14,29 +14,35 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-4 col-md-3 item">
-                    <h3>Services</h3>
+                    <h3>Υπηρεσίες</h3>
                     <ul>
-                        <li><a href="#">Web design</a></li>
-                        <li><a href="#">Development</a></li>
-                        <li><a href="#">Hosting</a></li>
+                        <li><a href="/employee">Είμαι εργαζόμενος</a></li>
+                        <li><a href="/employer">Είμαι εργοδότης</a></li>
+                        <li><a href="/under_construction">Είμαι άνεργος</a></li>
+                        <li><a href="/under_construction">Είμαι A.M.E.A.</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4 col-md-3 item">
-                    <h3>About</h3>
+                    <h3>Θέματα</h3>
                     <ul>
-                        <li><a href="#">Company</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">Legacy</a></li>
+                        <li><a href="/ministry/contact">Επικοινωνία</a></li>
+                        <% if(currentUser && currentUser.occupation === 'Εργοδότης') {%>
+                        <li><a href="/employer_profile">Ο λογαριασμός μου</a></li>
+                        <% } %>
+                        <% if(currentUser && currentUser.occupation === 'Εργαζόμενος') {%>
+                        <li><a href="/employee_profile">Ο λογαριασμός μου</a></li>
+                        <% } %>
+                        <li><a style="color: crimson !important; font-weight: bold;" href="/info/info-general">COVID-19</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-4 col-md-3 item">
+                <!-- <div class="col-sm-4 col-md-3 item">
                     <h3>Careers</h3>
                     <ul>
                         <li><a href="#">Job openings</a></li>
                         <li><a href="#">Employee success</a></li>
                         <li><a href="#">Benefits</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <div class="col-lg-3 item">
                     <p class="copyright">DI © 2021</p>
                 </div>
