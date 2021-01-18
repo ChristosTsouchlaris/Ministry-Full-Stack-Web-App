@@ -76,6 +76,10 @@ app.get('/employee', (req, res) => {
     res.render('employee/employee');
 })
 
+app.get('/employee-specific-leave-form.ejs', (req, res) => {
+    res.render('employee/employee-specific-leave-form.ejs');
+})
+
 app.get('/employer', (req, res) => {
     res.render('employer/employer');
 })
