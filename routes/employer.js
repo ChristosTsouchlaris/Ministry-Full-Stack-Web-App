@@ -29,8 +29,7 @@ router.post('/employer/:id/new_employee', async (req, res, next) => {
         req.flash('error', "Αυτός ο υπάλληλος δουλεύει ήδη για εσάς!");
         res.redirect(`/employer_profile/${employer._id}/employer_staff`)
     }
-
-    if(!employee) {
+    else if(!employee) {
         req.flash('error', "Δεν υπάρχει υπάλληλος με αυτό το ΑΜΚΑ");
         res.redirect(`/employer_profile/${employer._id}/employer_staff`)
     }
@@ -40,6 +39,56 @@ router.post('/employer/:id/new_employee', async (req, res, next) => {
         req.flash('success', "Μπράβο εισήγαγες ένα υπάλληλο!")
         res.redirect(`/employer_profile/${employer._id}/employer_staff`)
     }
+});
+
+router.post('/employer/:employer_id/manip_status/:employee_id', async (req, res, next) => {
+    const { action, from, until } = req.body;
+    console.log(req.body)
+    console.log(from)
+    console.log(typeof from)
+    // // Find the employer with the id from the url
+    const employer = await User.findById(req.params.employer_id).populate('employees');
+    // // Find the employee from the given amka
+    const employee = await User.findById(req.params.employee_id);
+
+    if(action === "1") {
+        employee.telework = true;
+        employee.teleFrom = from;
+        employee.teleUntil = until;
+        await employee.save();
+    }
+    else if(action === "2") {
+        employee.suspensionOfContact = true;
+        employee.susFrom = from;
+        employee.susUntil = until;
+        await employee.save();
+    }
+    
+    res.redirect(`/employer_profile/${employer._id}/employer_staff`);
+});
+
+router.post("/employer/:employer_id/undo_tele_status/:employee_id", async (req, res, next) => {
+    // // Find the employer with the id from the url
+    const employer = await User.findById(req.params.employer_id).populate('employees');
+    // // Find the employee from the given amka
+    const employee = await User.findById(req.params.employee_id);
+
+    employee.telework = false;
+    await employee.save();
+    
+    res.redirect(`/employer_profile/${employer._id}/employer_staff`);
+});
+
+router.post("/employer/:employer_id/undo_suspension_status/:employee_id", async (req, res, next) => {
+    // // Find the employer with the id from the url
+    const employer = await User.findById(req.params.employer_id).populate('employees');
+    // // Find the employee from the given amka
+    const employee = await User.findById(req.params.employee_id);
+
+    employee.suspensionOfContact = false;
+    await employee.save();
+    
+    res.redirect(`/employer_profile/${employer._id}/employer_staff`);
 });
 
 module.exports = router

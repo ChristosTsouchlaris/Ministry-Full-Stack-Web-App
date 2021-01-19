@@ -20,6 +20,18 @@ const UserSchema = new Schema({
         type: String,
         // required: true
     },
+    telework: { 
+        type: Boolean,
+        default: false
+    },
+    teleFrom: String,
+    teleUntil: String,
+    suspensionOfContact: { 
+        type: Boolean,
+        default: false
+    },
+    susFrom: String,
+    susUntil: String,
     employees: [
         {
             type: Schema.Types.ObjectId,

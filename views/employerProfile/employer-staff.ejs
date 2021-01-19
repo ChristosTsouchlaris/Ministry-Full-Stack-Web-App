@@ -72,16 +72,40 @@
               <td><%= employee.amka %> </td>
               <td><%= employee.phone %> </td>
               <td><%= employee.email %> </td>
+              <% if( employee.telework ) {%> 
+              <td>Τηλεργασία</td>  
+              <% } else if( employee.suspensionOfContact) {%> 
+                <td>Αναστολή σύμβασης</td>  
+              <% } else {%> 
               <td>Εργαζόμενος</td>
-              <td>
-                <select class="browser-default custom-select">
-                  <option selected="">Επιλέξτε δράση</option>
-                  <option value="1">Τηλεργασία</option>
-                  <option value="2">Αναστολή σύμβασης εργασίας</option>
-                </select></td>
-              <td><input type="date"></td>
-              <td><input type="date"></td>
-              <td><i class="fa fa-check" aria-hidden="true"></i></td>
+              <% } %>
+
+              <% if( employee.telework ) {%> 
+              <form action="/employer/<%- currentUser._id %>/undo_tele_status/<%- employee._id %>" method="POST">
+                <td><button class="btn btn-secondary btn-block">Επαναφορά</button></td>
+                <td><%= employee.teleFrom %> </td>
+                <td><%= employee.teleUntil %> </td>
+              </form>
+              <% } else if( employee.suspensionOfContact ) {%> 
+              <form action="/employer/<%- currentUser._id %>/undo_suspension_status/<%- employee._id %>" method="POST">
+                <td><button class="btn btn-secondary btn-block">Επαναφορά</button></td>
+                <td><%= employee.susFrom %> </td>
+                <td><%= employee.susUntil %> </td>
+              </form>
+              <% } else { %>  
+              <form action="/employer/<%- currentUser._id %>/manip_status/<%- employee._id %>" method="POST">
+                <td>
+                  <select class="browser-default custom-select" name="action">
+                    <option selected="">Επιλέξτε δράση</option>
+                    <option value="1">Τηλεργασία</option>
+                    <option value="2">Αναστολή σύμβασης εργασίας</option>
+                  </select></td>
+                <td><input type="date" name="from"></td>
+                <td><input type="date" name="until"></td>
+                <td><button class="btn btn-primary btn-block" style="height: 30px; width: 40px;"><i class="fa fa-check" aria-hidden="true"></i></button></td>
+                <!-- <td><i class="fa fa-check" aria-hidden="true"></i> -->
+              </form>
+              <% } %> 
             </tr>
             <!-- <tr>
                             <td>ΚΩΣΤΑΝΤΙΝΟΣ</td>
