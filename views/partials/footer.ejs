@@ -16,37 +16,58 @@
                 <div class="col-sm-4 col-md-3 item">
                     <h3>Υπηρεσίες</h3>
                     <ul>
-                        <li><a href="/employee">Είμαι εργαζόμενος</a></li>
-                        <li><a href="/employer">Είμαι εργοδότης</a></li>
-                        <li><a href="/under_construction">Είμαι άνεργος</a></li>
-                        <li><a href="/under_construction">Είμαι A.M.E.A.</a></li>
+                        <li><a href="/employee">Για εργαζόμενους</a></li>
+                        <li><a href="/employer">Για εργοδότες</a></li>
+                        <li><a href="/under_construction">Για άνεργους</a></li>
+                        <li><a href="/under_construction">Για A.M.E.A.</a></li>
                     </ul>
                 </div>
+                
                 <div class="col-sm-4 col-md-3 item">
-                    <h3>Θέματα</h3>
-                    <ul>
-                        <li><a href="/ministry/contact">Επικοινωνία</a></li>
-                        <% if(currentUser && currentUser.occupation === 'Εργοδότης') {%>
-                        <li><a href="/employer_profile">Ο λογαριασμός μου</a></li>
-                        <% } %>
-                        <% if(currentUser && currentUser.occupation === 'Εργαζόμενος') {%>
-                        <li><a href="/employee_profile">Ο λογαριασμός μου</a></li>
-                        <% } %>
-                        <li><a style="color: crimson !important; font-weight: bold;" href="/info/info-general">COVID-19</a></li>
-                    </ul>
-                </div>
-                <!-- <div class="col-sm-4 col-md-3 item">
-                    <h3>Careers</h3>
+                    <h3>Φόρμες</h3>
                     <ul>
                         <li><a href="#">Job openings</a></li>
                         <li><a href="#">Employee success</a></li>
                         <li><a href="#">Benefits</a></li>
                     </ul>
-                </div> -->
-                <div class="col-lg-3 item">
+                </div>
+                <div class="col-sm-4 col-md-3 item">
+                    <h3>Επικοινωνία</h3>
+                    <ul>
+                        <li><a href="#">Πού είμαστε</a></li>
+                        <li><a href="#">Κλείστε ραντεβού</a></li>                      
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 item social">
+                    <i class="icon ion-social-facebook" style="font-size: 24px;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    display: inline-block;
+                    text-align: center;
+                    border-radius: 50%;
+                    border: 1px solid #ccc;
+                    margin-left: 10px;
+                    margin-top: 22px;
+                    color: inherit;
+                    opacity: 0.75;"></i>
+                    <i class="icon ion-social-twitter" style="font-size: 24px;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    display: inline-block;
+                    text-align: center;
+                    border-radius: 50%;
+                    border: 1px solid #ccc;
+                    margin-left: 10px;
+                    margin-top: 22px;
+                    color: inherit;
+                    opacity: 0.75;"></i>
                     <p class="copyright">DI © 2021</p>
                 </div>
             </div>
         </div>
     </footer>
 </div>
+
