@@ -48,7 +48,7 @@
         <div style="margin: 100px 0px; font-size: 2em;">Δεν έχετε υπαλλήλους</div> 
         <% } else {%> 
         <table class="table table-striped"> 
-          <% for(let employee in currentUser.employees) {%> 
+          <% for(let employee of employer.employees) {%> 
           <thead>
             <tr>
               <th scope="col">Όνομα</th>
