@@ -20,7 +20,7 @@ const UserSchema = new Schema({
         type: String,
         // required: true
     },
-    employers: [
+    employees: [
         {
             type: Schema.Types.ObjectId,
             ref: "User"

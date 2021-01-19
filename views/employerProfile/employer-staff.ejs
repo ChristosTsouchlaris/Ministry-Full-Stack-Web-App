@@ -32,6 +32,7 @@
     </div>
 
     <div class="container topMargin20 bottomMargin20">
+      <%- include('../partials/flash'); %>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/">Αρχική</a></li>
@@ -43,13 +44,17 @@
 
     <div class="container topMargin40 bottomMargin40">
       <div class="d-flex flex-row justify-content-around">
-        <table class="table table-striped">
+        <% if(!(currentUser.employees.length)) {%>
+        <div style="margin: 100px 0px; font-size: 2em;">Δεν έχετε υπαλλήλους</div> 
+        <% } else {%> 
+        <table class="table table-striped"> 
+          <% for(let employee in currentUser.employees) {%> 
           <thead>
             <tr>
               <th scope="col">Όνομα</th>
               <th scope="col">Επώνυμο</th>
-              <th scope="col">ΑΦΜ</th>
-              <!-- <th scope="col">ΑΜΚΑ</th> -->
+              <!-- <th scope="col">ΑΦΜ</th> -->
+              <th scope="col">ΑΜΚΑ</th>
               <th scope="col">Τηλέφωνο</th>
               <th scope="col">Ηλεκτρονική Διεύθυνση</th>
               <th scope="col">Κατάσταση εργασίας</th>
@@ -63,10 +68,10 @@
             <tr>
               <td>ΧΡΗΣΤΟΣ</td>
               <td>ΤΣΟΥΧΛΑΡΗΣ</td>
-              <td>4564654</td>
-              <!-- <td>4587814578</td> -->
-              <td>6982936744</td>
-              <td>chris@tsouchlaris.com</td>
+              <!-- <td>4564654</td> -->
+              <td><%= employee.amka %> </td>
+              <td><%= employee.phone %> </td>
+              <td><%= employee.email %> </td>
               <td>Εργαζόμενος</td>
               <td>
                 <select class="browser-default custom-select">
@@ -102,8 +107,9 @@
                             <td>Εργαζόμενος</td>
                         </tr>                             -->
           </tbody>
+          <% } %>
         </table>
-
+        <% } %> 
 
       </div>
     </div>
@@ -114,11 +120,11 @@
           <button type="button" id="btnNewEmployee" class="btn btn-primary">ΔΗΜΙΟΥΡΓΙΑ ΝΕΟΥ ΥΠΑΛΛΗΛΟΥ</button>
         </div>
         <div class="p-2">
-          <form action="/register" method="POST" id="formNewEmployee" style="visibility: hidden;">
+          <form action="/employer/<%- currentUser._id %>/new_employee" method="POST" id="formNewEmployee" style="visibility: hidden;">
             <div class="form-group">
-              <label for="AFM"><b>Εισάγετε το ΑΦΜ του καινούργιου υπαλλήλου</b></label>
-              <input type="text" class="form-control" id="inputAFM" aria-describedby="emailHelp"
-                placeholder="Εισάγετε ΑΜΚΑ">
+              <label for="AMKA"><b>Εισάγετε το AMKA του καινούργιου υπαλλήλου</b></label>
+              <input type="text" class="form-control" id="AMKA" aria-describedby="emailHelp"
+                placeholder="Εισάγετε ΑΜΚΑ" name="amka">
             </div>
           </form>
         </div>
