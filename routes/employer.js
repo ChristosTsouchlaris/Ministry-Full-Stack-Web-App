@@ -6,11 +6,11 @@ router.get('/employer', (req, res) => {
     res.render('employer/employer');
 })
 
-router.get('/employer_profile' , (req, res) => {
+router.get('/employer_profile/:id' , (req, res) => {
     res.render('employerProfile/employer');
 })
 
-router.get('/employer_profile/employer_staff' , (req, res) => {
+router.get('/employer_profile/:id/employer_staff' , (req, res) => {
     res.render('employerProfile/employer-staff');
 })
 
