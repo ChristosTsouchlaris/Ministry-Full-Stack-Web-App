@@ -40,6 +40,14 @@ const UserSchema = new Schema({
     },
     susFrom: String,
     susUntil: String,
+    permitSpecialPurpose: {
+        permited: {
+            type: Boolean,
+            default: false  
+        },
+        from: String,
+        until: String
+    },
     employees: [
         {
             type: Schema.Types.ObjectId,

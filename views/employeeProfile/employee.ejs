@@ -14,6 +14,7 @@
         </div>
 
         <div class="container topMargin20 bottomMargin20">
+            <%- include('../partials/flash'); %>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">Αρχική</a></li>
@@ -81,16 +82,63 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <% if(currentUser.permitSpecialPurpose.permited) {%> 
+                                        <div class="form-group topMargin40">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span>Άδεια ειδικού σκοπού</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span>Από</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="border padding10"><%= currentUser.permitSpecialPurpose.from %></span>
+                                                </div>
+                                                <div class="col">
+                                                    <span>Μέχρι</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="border padding10"><%= currentUser.permitSpecialPurpose.until %></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% } else if( currentUser.telework) {%> 
+                                        <div class="form-group topMargin40">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span>Τηλεργασία</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span>Από</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="border padding10"><%= currentUser.teleFrom%></span>
+                                                </div>
+                                                <div class="col">
+                                                    <span>Μέχρι</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="border padding10"><%= currentUser.teleUntil %></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% } %> 
                                     </li>
                                 </ul>
                             </form>
                         </div>
                     </div>
+                    <% if(!currentUser.permitSpecialPurpose.permited && !currentUser.suspensionOfContact) {%> 
                     <div class="row">
                         <div class="col-md-12" style="text-align: center;margin-top: 10px;">
                             <button class="btn btn-primary" id="leave-button">Δήλωση ειδικού σκοπού</button>
                         </div>
                     </div>
+                    <% } %> 
                 </div>
             </div>
 

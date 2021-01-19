@@ -18,6 +18,7 @@
         </div>
 
         <div class="container topMargin20 bottomMargin20">
+            <%- include('../partials/flash'); %>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">Αρχική</a></li>
@@ -29,32 +30,32 @@
       </div>
 
 <div class="leave-form">
-   <form style="text-align: center;">
+   <form action="/employee/<%- currentUser._id %>/new_leave_form" method="POST" style="text-align: center;">
          <div class="form-icon">
             <span><i class="icon icon-calendar"></i></span>
          </div>
          <div class="form-group">
             <label for="firstName">Όνομα</label>
-            <input type="text" class="form-control item" id="firstName" placeholder="Όνομα" value="<%- currentUser.firstName %>">
+            <input type="text" class="form-control item" id="firstName" placeholder="Όνομα" value="<%- currentUser.firstName %>" name="firstName">
          </div>
          <div class="form-group">
             <label for="lastName">Επίθετο</label>
-            <input type="text" class="form-control item" id="lastName" placeholder="Επίθετο" value="<%- currentUser.lastName %>">
+            <input type="text" class="form-control item" id="lastName" placeholder="Επίθετο" value="<%- currentUser.lastName %>" name="lastName">
          </div>
          <div class="form-group">
             <label for="amka">ΑΜΚΑ</label>
-            <input type="text" class="form-control item" id="amka" placeholder="AMKA" value="<%- currentUser.amka %>">
+            <input type="text" class="form-control item" id="amka" placeholder="AMKA" value="<%- currentUser.amka %>" name="amka">
          </div>
          <div class="form-group">
             <label for="from">Από</label>
-            <input type="date" class="form-control item" id="from">
+            <input type="date" class="form-control item" id="from" name="from">
          </div>
          <div class="form-group">
             <label for="until">Μέχρι</label>
-            <input type="date" class="form-control item" id="until">
+            <input type="date" class="form-control item" id="until" name="until">
          </div>
          <div class="form-group">
-            <button type="button" class="btn btn-block create-account">Υποβολή αίτησης άδειας</button>
+            <button class="btn btn-block create-account">Υποβολή αίτησης άδειας</button>
          </div>
    </form>
    
