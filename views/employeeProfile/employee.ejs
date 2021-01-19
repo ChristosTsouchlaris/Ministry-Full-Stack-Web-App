@@ -85,7 +85,7 @@
                                         <% if(currentUser.permitSpecialPurpose.permited) {%> 
                                         <div class="form-group topMargin40">
                                             <div class="row">
-                                                <div class="col">
+                                                <div class="col" style="margin-bottom: 10px;">
                                                     <span>Άδεια ειδικού σκοπού</span>
                                                 </div>
                                             </div>
@@ -104,10 +104,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <% } else if( currentUser.telework) {%> 
+                                        <% } %> 
+                                        <% if( currentUser.telework ) {%>
                                         <div class="form-group topMargin40">
                                             <div class="row">
-                                                <div class="col">
+                                                <div class="col" style="margin-bottom: 10px;">
                                                     <span>Τηλεργασία</span>
                                                 </div>
                                             </div>
@@ -126,13 +127,36 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <% } %> 
+                                        <% } %>
+                                        <% if( currentUser.telework ) {%>
+                                            <div class="form-group topMargin40">
+                                                <div class="row">
+                                                    <div class="col" style="margin-bottom: 10px;">
+                                                        <span>Αναστολή σύμβασης εργασίας</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <span>Από</span>
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="border padding10"><%= currentUser.susFrom%></span>
+                                                    </div>
+                                                    <div class="col">
+                                                        <span>Μέχρι</span>
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="border padding10"><%= currentUser.susUntil %></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% } %>  
                                     </li>
                                 </ul>
                             </form>
                         </div>
                     </div>
-                    <% if(!currentUser.permitSpecialPurpose.permited && !currentUser.suspensionOfContact) {%> 
+                    <% if(!currentUser.permitSpecialPurpose.permited) {%> 
                     <div class="row">
                         <div class="col-md-12" style="text-align: center;margin-top: 10px;">
                             <button class="btn btn-primary" id="leave-button">Δήλωση ειδικού σκοπού</button>

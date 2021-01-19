@@ -91,4 +91,18 @@ router.post("/employer/:employer_id/undo_suspension_status/:employee_id", async 
     res.redirect(`/employer_profile/${employer._id}/employer_staff`);
 });
 
+router.post("/employer/:employer_id/undo_perm_special_purpose_status/:employee_id", async (req, res, next) => {
+    // // Find the employer with the id from the url
+    const employer = await User.findById(req.params.employer_id).populate('employees');
+    // // Find the employee from the given amka
+    const employee = await User.findById(req.params.employee_id);
+
+    employee.permitSpecialPurpose.permited = false;
+    await employee.save();
+    
+    res.redirect(`/employer_profile/${employer._id}/employer_staff`);
+});
+
+
+
 module.exports = router
