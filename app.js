@@ -15,11 +15,15 @@ const ministryRoutes = require('./routes/ministry');
 const employeeRoutes = require('./routes/employee');
 const employerRoutes = require('./routes/employer');
 
-mongoose.connect('mongodb://localhost:27017/ypakp', {
+// mongodb://localhost:27017/ypakp
+
+mongoose.connect('mongodb+srv://mereos:vGcaEbYBF6Ki8Gy@eam-users.hxwoj.mongodb.net/ypakp?retryWrites=true&w=majority', {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true
 });
+
+
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
