@@ -43,8 +43,8 @@
 </head>
 
 <body class="d-flex flex-column vh-100 ">
-  <div class="container">
-    <div class="topMargin20 bottomMargin20">
+  <div class="">
+    <div class="container topMargin20 bottomMargin20">
       <%- include('../partials/navbar'); %>
     </div>
 
@@ -79,6 +79,11 @@
               <th scope="col">Από</th>
               <th scope="col">Μέχρι</th>
               <th scope="col"></th>
+              <% } else { %> 
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
               <% } %> 
               <th scope="col">Περισσότερες πληροφορίες</th>
             </tr>
@@ -103,15 +108,20 @@
                     <option value="2">Αναστολή σύμβασης εργασίας</option>
                     <% } %> 
                   </select></td>
-                <td><input type="date" name="from" style="width: 50px;"></td>
-                <td><input type="date" name="until" style="width: 50px;"></td>
+                <td><input type="date" name="from" style="width: 129px;"></td>
+                <td><input type="date" name="until" style="width: 129px;"></td>
                 <td><button class="btn btn-primary btn-block" style="height: 30px; width: 40px;"><i class="fa fa-check" aria-hidden="true"></i></button></td>
                 <!-- <td><i class="fa fa-check" aria-hidden="true"></i> -->
               </form>
+              <% } else {%> 
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
               <% } %> 
               <!-- <td><i class="fa fa-check" aria-hidden="true"></i> -->
                 <td>
-                  <button type="button" class="btn" data-toggle="collapse" data-target="#collapseme">
+                  <button type="button" class="btn" data-toggle="collapse" data-target="#<%= employee._id %>">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
                   </button>
                 </td>
@@ -120,7 +130,7 @@
 
             <tr id="employeesDetailRow">
               <td colspan="8">
-                <div class="collapse out" id="collapseme">
+                <div class="collapse out" id="<%= employee._id %>">
                   <div class="container">
                     <% if(!employee.permitSpecialPurpose.permited && !employee.telework && !employee.suspensionOfContact) {%>
                     <div class="d-flex flex-column">
@@ -250,15 +260,15 @@
     var btnNewEmployee = document.querySelector("#btnNewEmployee");
     var formNewEmployee = document.querySelector("#formNewEmployee");
 
-    btnNewEmployee.addEventListener("click", (e) => {
-      e.preventDefault();
-      formNewEmployee.style.visibility = "visible";
-    })
+    // btnNewEmployee.addEventListener("click", (e) => {
+    //   e.preventDefault();
+    //   formNewEmployee.style.visibility = "visible";
+    // })
 
-    var submitButton = document.querySelector("td i");
-    submitButton.addEventListener('click', (e) => {
-      alert("HELLO KOSTAS!!!");
-    })
+    // var submitButton = document.querySelector("td i");
+    // submitButton.addEventListener('click', (e) => {
+    //   alert("HELLO KOSTAS!!!");
+    // })
   </script>
 </body>
 
