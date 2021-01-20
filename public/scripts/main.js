@@ -4,12 +4,20 @@ if(infoButton) {
         window.location.href = "/info/info-general";
     })
 }
+
 const employerButton = document.querySelector("#btn-employer");
 if(employerButton) {
     employerButton.addEventListener("click", (e) => {
         window.location.href = "/employer";
     })
 }
+
+// const employerButton = document.querySelector("#myEmployeesButtons");
+// if(employerButton) {
+//     employerButton.addEventListener("click", (e) => {
+//         window.location.href = "/employer";
+//     })
+// }
 
 const employeeButton = document.querySelector("#btn-employee");
 if(employeeButton) {

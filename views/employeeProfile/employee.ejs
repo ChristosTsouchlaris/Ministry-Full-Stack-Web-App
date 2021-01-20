@@ -13,177 +13,10 @@
             <%- include('../partials/navbar'); %>
         </div>
 
-        <div class="container topMargin20 bottomMargin20">
-            <%- include('../partials/flash'); %>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Αρχική</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Το προφίλ μου</li>
-                </ol>
-            </nav>
-        </div>
-
-        <div class="container topMargin40 bottomMargin40">
-            <div class="d-flex flex-row justify-content-around">
-                <div class="p-2">
-                    <div class="card" style="width: 1110px; height:500px;">
-                        <span class="topMargin20" style="text-align: center;font-size: 30px;">
-                            <b>Εδώ υπάρχουν πληροφορίες για εσένα</b>
-                        </span>
-                        <div class="card-body" style="text-align: center;">
-                            <form action="">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <div class="form-group topMargin40">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <span>Όνομα</span>
-                                                </div>
-                                                <div class="col">
-                                                    <span class="border padding10"><%= currentUser.firstName %></span>
-                                                </div>
-                                                <div class="col">
-                                                    <span>Επίθετο</span>
-                                                </div>
-                                                <div class="col">
-                                                    <span class="border padding10"><%= currentUser.lastName %></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group topMargin40">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <span>Username</span>
-                                                </div>
-                                                <div class="col">
-                                                    <span class="border padding10"><%= currentUser.username %></span>
-                                                </div>
-                                                <div class="col">
-                                                    <span>ΑΜΚΑ</span>
-                                                </div>
-                                                <div class="col">
-                                                    <span class="border padding10"><%= currentUser.amka %></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group topMargin40">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <span>Τηλέφωνο</span>
-                                                </div>
-                                                <div class="col">
-                                                    <span class="border padding10"><%= currentUser.phone %></span>
-                                                </div>
-                                                <div class="col">
-                                                    <span>Ηλεκτρονική Διεύθυνση</span>
-                                                </div>
-                                                <div class="col">
-                                                    <span class="border padding10"><%= currentUser.email %></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <% if(currentUser.permitSpecialPurpose.permited) {%> 
-                                        <div class="form-group topMargin40">
-                                            <div class="row">
-                                                <div class="col" style="margin-bottom: 10px;">
-                                                    <span>Άδεια ειδικού σκοπού</span>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <span>Από</span>
-                                                </div>
-                                                <div class="col">
-                                                    <span class="border padding10"><%= currentUser.permitSpecialPurpose.from %></span>
-                                                </div>
-                                                <div class="col">
-                                                    <span>Μέχρι</span>
-                                                </div>
-                                                <div class="col">
-                                                    <span class="border padding10"><%= currentUser.permitSpecialPurpose.until %></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <% } %> 
-                                        <% if( currentUser.telework ) {%>
-                                        <div class="form-group topMargin40">
-                                            <div class="row">
-                                                <div class="col" style="margin-bottom: 10px;">
-                                                    <span>Τηλεργασία</span>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <span>Από</span>
-                                                </div>
-                                                <div class="col">
-                                                    <span class="border padding10"><%= currentUser.teleFrom%></span>
-                                                </div>
-                                                <div class="col">
-                                                    <span>Μέχρι</span>
-                                                </div>
-                                                <div class="col">
-                                                    <span class="border padding10"><%= currentUser.teleUntil %></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <% } %>
-                                        <% if( currentUser.telework ) {%>
-                                            <div class="form-group topMargin40">
-                                                <div class="row">
-                                                    <div class="col" style="margin-bottom: 10px;">
-                                                        <span>Αναστολή σύμβασης εργασίας</span>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <span>Από</span>
-                                                    </div>
-                                                    <div class="col">
-                                                        <span class="border padding10"><%= currentUser.susFrom%></span>
-                                                    </div>
-                                                    <div class="col">
-                                                        <span>Μέχρι</span>
-                                                    </div>
-                                                    <div class="col">
-                                                        <span class="border padding10"><%= currentUser.susUntil %></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <% } %>  
-                                    </li>
-                                </ul>
-                            </form>
-                        </div>
-                    </div>
-                    <% if(!currentUser.permitSpecialPurpose.permited) {%> 
-                    <div class="row">
-                        <div class="col-md-12" style="text-align: center;margin-top: 10px;">
-                            <button class="btn btn-primary" id="leave-button">Δήλωση ειδικού σκοπού</button>
-                        </div>
-                    </div>
-                    <% } %> 
-                </div>
-            </div>
-
-            <div class="container topMargin40 bottomMargin40">
-                <div class="d-flex flex-row justify-content-around">
-                </div>
-            </div>
-
-            </div>
-        </div>
-
-
-         <!-- EDWWW MIXALISSS 1 -->
-         <div class="container">
-            <div class="main-body">
-            
                   <!-- Breadcrumb -->
                   <nav aria-label="breadcrumb" class="main-breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="/">Αρχική</a></li>
-                      <li class="breadcrumb-item"><a href="/">Είμαι εργαζόμενος</a></li>
                       <li class="breadcrumb-item active" aria-current="page">Το προφίλ μου</li>
                     </ol>
                   </nav>
@@ -194,12 +27,12 @@
                       <div class="card">
                         <div class="card-body">
                           <div class="d-flex flex-column align-items-center text-center">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                            <img src="/assets/images/download.jpeg" alt="Admin" class="rounded-circle" width="150">
                             <div class="mt-3">
-                              <h4>Kostaj Meraj</h4>
+                              <h4><%= currentUser.firstName %> <%= currentUser.lastName %></h4>
                               <p class="text-secondary mb-1">Ιδιωτικός Υπάλληλος</p>
                               <p class="text-muted font-size-sm">Ζωγράφου, Αθήνα</p>
-                              <button class="btn btn-primary">Άδεια ειδικού Σκοπού</button>
+                              <button id="leave-button" class="btn btn-primary  <%= currentUser.permitSpecialPurpose.permited ? "disabled":"" %>">Δήλωση άδειας ειδικού Σκοπού</button>
                       
                             </div>
                           </div>
@@ -211,7 +44,11 @@
                             <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Ιστόχωρος</h6>
                             <span class="text-secondary">https://ego.com</span>
                           </li>
-                          
+                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap mt-3">
+                              <button class="btn btn-primary" id="btn-employee" style="background-color: rgb(184, 184, 7); width: 100%;">
+                                Σελίδα εργαζομένου
+                            </button> 
+                          </li>
                           
                         </ul>
                       </div>
@@ -224,7 +61,7 @@
                               <h6 class="mb-0">Όνομα</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                              Κώστας
+                                <%= currentUser.firstName %>
                             </div>
                           </div>
                           <hr>
@@ -233,7 +70,7 @@
                               <h6 class="mb-0">Επίθετο</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                              Μερεός
+                                <%= currentUser.lastName %>
                             </div>
                           </div>
                           <hr>
@@ -242,7 +79,7 @@
                               <h6 class="mb-0">e-mail</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                              mereosk@mereosk.com
+                                <%= currentUser.email %>
                             </div>
                           </div>
                           <hr>
@@ -251,7 +88,7 @@
                               <h6 class="mb-0">Τηλέφωνο</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                              6971231231
+                                <%= currentUser.phone %>
                             </div>
                           </div>
                           <hr>
@@ -260,7 +97,7 @@
                               <h6 class="mb-0">ΑΜΚΑ</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                              0808081471
+                                <%= currentUser.amka %>
                             </div>
                           </div>
                           <hr>
@@ -275,7 +112,7 @@
                         </div>
                       </div>
                       <div class="row gutters-sm">
-                        
+                        <% if( currentUser.telework ) {%>
                         <div class="col-sm-6 col-md-5 col-lg-4">
                           <div class="card h-60">
                             <div class="card-body">
@@ -283,15 +120,17 @@
                               
                               <small>Από</small>
                               <div class="col-sm-9 text-secondary">
-                                20/01/2021
+                                  <%= currentUser.teleFrom %> 
                               </div>
                               <small>Μέχρι</small>
                               <div class="col-sm-9 text-secondary">
-                                20/01/2021
+                                <%= currentUser.teleUntil %> 
                               </div>
                             </div>
                           </div>
                         </div>
+                        <% } %> 
+                        <% if(currentUser.permitSpecialPurpose.permited) {%> 
                         <div class="col-sm-6 col-md-5 col-lg-4">
                           <div class="card h-60">
                             <div class="card-body">
@@ -299,15 +138,17 @@
                               
                               <small>Από</small>
                               <div class="col-sm-9 text-secondary">
-                                20/01/2021
+                                <%= currentUser.permitSpecialPurpose.from %> 
                               </div>
                               <small>Μέχρι</small>
                               <div class="col-sm-9 text-secondary">
-                                20/01/2021
+                                <%= currentUser.permitSpecialPurpose.until %> 
                               </div>
                             </div>
                           </div>
                         </div>
+                        <% } %> 
+                        <% if(currentUser.suspensionOfContact) {%> 
                         <div class="col-sm-6 col-md-5 col-lg-4">
                           <div class="card h-60">
                             <div class="card-body">
@@ -315,185 +156,24 @@
                               
                               <small>Από</small>
                               <div class="col-sm-9 text-secondary">
-                                20/01/2021
+                                <%= currentUser.susFrom %> 
                               </div>
                               <small>Μέχρι</small>
                               <div class="col-sm-9 text-secondary">
-                                20/01/2021
+                                <%= currentUser.susUntil %> 
                               </div>
                             </div>
                           </div>
                         </div>
+                        <% } %> 
                       </div>
                     </div>
                   </div>
                 </div>
             </div>
-         <!-- MEXRI EDW 1-->
 
+            <div style="margin: 10px;"></div>
 
-
-
-
-
-
-         <!-- EDW MIXALISSS 2-->
-
-
-         <div class="container">
-            <div class="main-body">
-            
-                  <!-- Breadcrumb -->
-                  <nav aria-label="breadcrumb" class="main-breadcrumb">
-                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="/">Αρχική</a></li>
-                      <li class="breadcrumb-item"><a href="/">Είμαι εργοδότης</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Το προφίλ μου</li>
-                    </ol>
-                  </nav>
-                  <!-- /Breadcrumb -->
-            
-                  <div class="row gutters-sm">
-                    <div class="col-md-4 mb-3">
-                      <div class="card">
-                        <div class="card-body">
-                          <div class="d-flex flex-column align-items-center text-center">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
-                            <div class="mt-3">
-                              <h4>Kostaj Meraj</h4>
-                              <p class="text-secondary mb-1">Ιδιοκτήτης ΜΑΡΟΥΛΑΚΙΑΣ Α.Ε.</p>
-                              <p class="text-muted font-size-sm">Ζωγράφου, Αθήνα</p>
-                              <!-- <button class="btn btn-primary">Άδεια ειδικού Σκοπού</button> -->
-                      
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card mt-3">
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                            <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Ιστόχωρος</h6>
-                            <span class="text-secondary">https://maroulakias.com</span>
-                          </li>
-                          <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap mt-3"><button class="btn btn-primary" style="background-color:grey ; width: 100%;">Οι υπάλληλοι μου</button>
-                            
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card mb-3">
-                        <div class="card-body">
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <h6 class="mb-0">Όνομα</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                              Κώστας
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <h6 class="mb-0">Επίθετο</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                              Μερεός
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <h6 class="mb-0">Username</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                              Tom
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <h6 class="mb-0">e-mail</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                              mereosk@mereosk.com
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <h6 class="mb-0">Τηλέφωνο</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                              6971231231
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <h6 class="mb-0">Όνομα επιχείρησης</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                             ΜΑΡΟΥΛΑΚΙΑΣ Α.Ε.
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <h6 class="mb-0">Α.Φ.Μ. επιχείρησης</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                             15151515
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <h6 class="mb-0">Διακριτικός Τίτλος</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                             ΜΑΡΟΥΛΑΚΙΑΣ
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <h6 class="mb-0">Αντικείμενο</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                             Αγροτικά προϊόντα
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <h6 class="mb-0">ΔΟΥ</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                             Αττικής
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <h6 class="mb-0">ΑΜΕ</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                            118151
-                            </div>
-                          </div>
-                          <hr>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-        
-
-
-         
-         <!-- MEXRI EDW 2 -->
         <%- include('../partials/footer'); %>
 
 
@@ -508,6 +188,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
         </script>
+        <script src="/scripts/main.js" type="text/javascript"></script>
         <script src="/scripts/employee.js" type="text/javascript"></script>
 </body>
 

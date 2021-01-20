@@ -13,6 +13,7 @@
         </div>
 
         <div class="container topMargin20 bottomMargin20">
+            <%- include('../partials/flash'); %>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">Αρχική</a></li>
@@ -92,7 +93,7 @@
                                                 το υπουργείο προσφέρει μια νέα ηλεκρονική υπηρεσία για το κλείσιμο
                                                 ραντεβού για την προσέλευση σας για την τήρηση όλων των τελευταίων μέτρων ασφαλείας</span>
                                             <br>
-                                            <a href="/ministry/rendezvous" class="btn btn-primary topMargin20">ΚΛΕΙΣΙΜΟ ΡΑΝΤΕΒΟΥ</a>
+                                            <a href="/ministry/rendezvous" class="btn btn-primary topMargin20 <%= !currentUser ? "disabled":"" %>">ΚΛΕΙΣΙΜΟ ΡΑΝΤΕΒΟΥ</a>
                                         </div>
                                     </div>
                                 </div>

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/rendezvous-form.css">
 </head>
-1
+
 <body class="d-flex flex-column vh-100">
     <div class="container">
         <div class=" topMargin20 bottomMargin20">
@@ -14,6 +14,7 @@
         </div>
 
         <div class="container topMargin20 bottomMargin20">
+            <%- include('../partials/flash'); %>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">Αρχική</a></li>
@@ -25,38 +26,42 @@
             </nav>
         </div>
 
-    <div class="rendezvous-form">
-        <form>
+    <div class="rendezvous-form" style="text-align: center;">
+        <form action="/ministry/rantevou/make_a_date" method="POST">
               <div class="form-icon">
                  <span><i class="fa fa-plus" aria-hidden="true"></i></i></span>
               </div>
               <div class="form-group">
-                 <input type="text" class="form-control item" id="fname" placeholder="Eπώνυμο">
+                  <label for="fname">Όνομα</label>
+                 <input type="text" class="form-control item" id="fname" placeholder="Eπώνυμο" value="<%- currentUser.lastName %>" name="lname">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control item" id="surname" placeholder="Όνομα">
+                <label for="surname">Επίθετο</label>
+                <input type="text" class="form-control item" id="surname" placeholder="Όνομα" value="<%- currentUser.firstName %>" name="fname">
              </div>
               <div class="form-group">
-                 <input type="text" class="form-control item" id="email" placeholder="Email">
+                <label for="email">Ηλεκτρονική Διεύθυνση</label>
+                <input type="text" class="form-control item" id="email" placeholder="Email" value="<%- currentUser.email %>" name="email">
               </div>
               <div class="form-group">
-                <input type="tel" class="form-control item" placeholder="Το τηλέφωνό σας">
-             </div>
-              <div class="form-group">
-                <input type="text" class="form-control item" placeholder="Δήμος Διαμονής">
+                <label for="phone">Τηλέφωνο</label>
+                <input type="tel" class="form-control item" id="phone" placeholder="Το τηλέφωνό σας" value="<%- currentUser.phone %>" name="phone">
              </div>
              <div class="form-group">
-                <input type="text" class="form-control item" placeholder="Διεύθυνση">
+                 <label for="address">Διεύθυνση</label>
+                <input type="text" class="form-control item" id="address" placeholder="Διεύθυνση" name="address">
              </div>
               <div class="form-group">
-                <input type="datetime-local" class="form-control item" id="datetime"  required>
+                  <label for="datetime">Ημερομηνία</label>
+                <input type="datetime-local" class="form-control item" id="datetime" name="date" required>
              </div>
              <div class="form-group">
-                <input type="text" class="form-control item" placeholder="Ένα σύντομο μήνυμα">
+                 <label for="message">Αφήστε ένα μήνυμα</label>
+                <input type="text" class="form-control item" id="message" placeholder="Ένα σύντομο μήνυμα">
              </div>
 
              <div class="form-group">
-                <button type="button" class="btn btn-block create-account">Κλείσιμο ραντεβού</button>
+                <button class="btn btn-block create-account">Κλείσιμο ραντεβού</button>
              </div>
         </form>
      </div>
