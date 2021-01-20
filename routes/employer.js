@@ -11,9 +11,14 @@ router.get('/employer_profile/:id' , (req, res) => {
 })
 
 router.get('/employer_profile/:id/employer_staff' , async (req, res) => {
+    const today = new Date();
+    var dd = await String(today.getDate()).padStart(2, '0');
+    var mm = await String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = await today.getFullYear();
+
     const employer = await User.findById(req.params.id).populate('employees');
     console.log(employer)
-    res.render('employerProfile/employer-staff', { employer });
+    res.render('employerProfile/employer-staff', { employer, dd, mm, yyyy});
 })
 
 router.post('/employer/:id/new_employee', async (req, res, next) => {
@@ -74,6 +79,8 @@ router.post("/employer/:employer_id/undo_tele_status/:employee_id", async (req, 
     const employee = await User.findById(req.params.employee_id);
 
     employee.telework = false;
+    employee.teleFrom = '';
+    employee.teleFrom = '';
     await employee.save();
     
     res.redirect(`/employer_profile/${employer._id}/employer_staff`);
@@ -86,6 +93,8 @@ router.post("/employer/:employer_id/undo_suspension_status/:employee_id", async 
     const employee = await User.findById(req.params.employee_id);
 
     employee.suspensionOfContact = false;
+    employee.susFrom = '';
+    employee.susUntil = '';
     await employee.save();
     
     res.redirect(`/employer_profile/${employer._id}/employer_staff`);
@@ -98,6 +107,9 @@ router.post("/employer/:employer_id/undo_perm_special_purpose_status/:employee_i
     const employee = await User.findById(req.params.employee_id);
 
     employee.permitSpecialPurpose.permited = false;
+    employee.permitSpecialPurpose.from = '';
+    employee.permitSpecialPurpose.until = '';
+    
     await employee.save();
     
     res.redirect(`/employer_profile/${employer._id}/employer_staff`);

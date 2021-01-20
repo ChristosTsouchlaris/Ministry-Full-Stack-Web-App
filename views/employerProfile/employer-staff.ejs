@@ -94,7 +94,15 @@
               <td><%= employee.amka%></td>
               <td><%= employee.phone%></td>
               <td><%= employee.email%></td>
+              <% if(employee.teleFrom != '' && (yyyy + '-' + mm + '-' + dd).localeCompare(employee.teleFrom) >= 0) { %> 
+              <td>Τηλεργασία</td>
+              <% } else if(employee.susFrom != '' && (yyyy + '-' + mm + '-' + dd).localeCompare(employee.susFrom) >= 0) { %> 
+              <td>Αναστολή</td>
+              <% } else if(employee.permitSpecialPurpose.from != '' && (yyyy + '-' + mm + '-' + dd).localeCompare(employee.permitSpecialPurpose.from) >= 0) { %> 
+              <td>Άδεια</td>
+              <% } else { %> 
               <td>Εργαζομενος</td>
+              <% } %> 
               <% if(!employee.telework || !employee.suspensionOfContact) {%> 
               <form action="/employer/<%- currentUser._id %>/manip_status/<%- employee._id %>" method="POST">
                 <td>
@@ -107,8 +115,8 @@
                     <option value="2">Αναστολή σύμβασης εργασίας</option>
                     <% } %> 
                   </select></td>
-                <td><input type="date" name="from" style="width: 129px;"></td>
-                <td><input type="date" name="until" style="width: 129px;"></td>
+                <td><input type="date" name="from" style="width: 100px;"></td>
+                <td><input type="date" name="until" style="width: 100px;"></td>
                 <td><button class="btn btn-primary btn-block" style="height: 30px; width: 40px;"><i class="fa fa-check" aria-hidden="true"></i></button></td>
                 <!-- <td><i class="fa fa-check" aria-hidden="true"></i> -->
               </form>
@@ -163,9 +171,9 @@
                             <!-- <div class="p-2">YYY</div> -->
                             <div class="p-2" style="margin-right:4.3rem; font-weight: bold;">Ημέρες τηλεργασίας</div>
                             <div class="p-2">Από</div>
-                            <div class="p-2 date"><%= employee.susFrom %></div>
+                            <div class="p-2 date"><%= employee.teleFrom %></div>
                             <div class="p-2">Μέχρι</div>
-                            <div class="p-2 date"><%= employee.susUntil %></div>
+                            <div class="p-2 date"><%= employee.teleUntil %></div>
                             <div class="p-2">
                               <form action="/employer/<%- currentUser._id %>/undo_tele_status/<%- employee._id %>" method="POST">
                                 <button class="btn btn-secondary btn-block">Επαναφορά</button>
@@ -264,10 +272,10 @@
       formNewEmployee.style.visibility = "visible";
     })
 
-    var submitButton = document.querySelector("td i");
-    submitButton.addEventListener('click', (e) => {
-      alert("HELLO KOSTAS!!!");
-    })
+    // var submitButton = document.querySelector("td i");
+    // submitButton.addEventListener('click', (e) => {
+    //   alert("HELLO KOSTAS!!!");
+    // })
   </script>
 </body>
 
