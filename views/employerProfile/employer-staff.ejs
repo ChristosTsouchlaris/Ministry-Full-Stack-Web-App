@@ -23,9 +23,9 @@
 
     /* CHRIS 19.01.2021 START */
 
-    td .fa-info-circle:hover {
+    td .fa-cog:hover {
       cursor: pointer;
-      color: rgb(236, 182, 4);
+      color: rgb(206, 159, 5);
     }
 
     .date {
@@ -33,6 +33,10 @@
       margin-left: 2rem;
       margin-right: 2rem;
       border: 1px solid black;
+    }
+
+    input:hover, select:hover {
+      cursor: pointer;
     }
 
     /* CHRIS 19.01.2021 END */
@@ -48,7 +52,7 @@
       <%- include('../partials/navbar'); %>
     </div>
 
-    
+
     <div class="container topMargin20 bottomMargin20">
       <%- include('../partials/flash'); %>
       <!-- <nav aria-label="breadcrumb"> -->
@@ -60,172 +64,206 @@
       </nav>
     </div>
 
-    <div>
-      <% if(!(currentUser.employees.length)) {%>
-        <div style="margin: 100px 0px; font-size: 2em;">Δεν έχετε υπαλλήλους</div>
-        <% } else {%>
-        <table id="employeesTable" class="table table-striped">
-          <% for(let employee of employer.employees) {%>
-          <thead>
-            <tr>
-              <th scope="col">Όνομα</th>
-              <th scope="col">Επώνυμο</th>
-              <th scope="col">ΑΜΚΑ</th>
-              <th scope="col">Τηλέφωνο</th>
-              <th scope="col">Ηλεκτρονική Διεύθυνση</th>
-              <th scope="col">Κατάσταση εργασίας</th>
-              <% if(!employee.telework || !employee.suspensionOfContact) {%> 
-              <th scope="col">Επιλογές</th>
-              <th scope="col">Από</th>
-              <th scope="col">Μέχρι</th>
-              <th scope="col"></th>
-              <% } else { %> 
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              <% } %> 
-              <th scope="col">Περισσότερες πληροφορίες</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= employee.firstName%></td>
-              <td><%= employee.lastName%></td>
-              <td><%= employee.amka%></td>
-              <td><%= employee.phone%></td>
-              <td><%= employee.email%></td>
-              <td>Εργαζομενος</td>
-              <% if(!employee.telework || !employee.suspensionOfContact) {%> 
-              <form action="/employer/<%- currentUser._id %>/manip_status/<%- employee._id %>" method="POST">
-                <td>
-                  <select class="browser-default custom-select" name="action">
-                    <option selected="">Επιλέξτε δράση</option>
-                    <% if(!employee.telework) { %> 
-                    <option value="1">Τηλεργασία</option>
-                    <% } %> 
-                    <% if(!employee.suspensionOfContact) { %> 
-                    <option value="2">Αναστολή σύμβασης εργασίας</option>
-                    <% } %> 
-                  </select></td>
-                <td><input type="date" name="from" style="width: 129px;"></td>
-                <td><input type="date" name="until" style="width: 129px;"></td>
-                <td><button class="btn btn-primary btn-block" style="height: 30px; width: 40px;"><i class="fa fa-check" aria-hidden="true"></i></button></td>
-                <!-- <td><i class="fa fa-check" aria-hidden="true"></i> -->
-              </form>
-              <% } else {%> 
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              <% } %> 
-              <!-- <td><i class="fa fa-check" aria-hidden="true"></i> -->
-                <td>
-                  <button type="button" class="btn" data-toggle="collapse" data-target="#<%= employee._id %>">
-                    <i class="fa fa-info-circle" aria-hidden="true"></i>
-                  </button>
-                </td>
-              <!-- <td onclick="getEmployeeInfo(this)"><i class="fa fa-info-circle" aria-hidden="true"></i> -->
-            </tr>
-
-            <tr id="employeesDetailRow">
-              <td colspan="8">
-                <div class="collapse out" id="<%= employee._id %>">
-                  <div class="container">
-                    <% if(!employee.permitSpecialPurpose.permited && !employee.telework && !employee.suspensionOfContact) {%>
-                    <div class="d-flex flex-column">
-                      <div>Δεν υπάρχει κάτι.</div>
-                    </div>
-                    <% } else { %>  
-                    <div class="d-flex flex-column">
-                      <% if(employee.permitSpecialPurpose.permited) {%> 
-                      <div class="p-2">
-                        <div class="container">
-                          <div class="d-flex flex-row ">
-                            <!-- <div class="p-2">YYY</div> -->
-                            <div class="p-2" style="margin-right:3.6rem; font-weight: bold;">Άδεια ειδικού σκοπoύ</div>
-                            <div class="p-2">Από</div>
-                            <div class="p-2 date"><%= employee.permitSpecialPurpose.from %></div>
-                            <div class="p-2">Μέχρι</div>
-                            <div class="p-2 date"><%= employee.permitSpecialPurpose.until %></div>
-                            <div class="p-2">
-                              <form action="/employer/<%- currentUser._id %>/undo_perm_special_purpose_status/<%- employee._id %>" method="POST">
-                                <button class="btn btn-secondary btn-block">Επαναφορά</button>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <% } %> 
-                      <% if( employee.telework) { %> 
-                      <div class="p-2">
-                        <div class="container">
-                          <div class="d-flex flex-row ">
-                            <!-- <div class="p-2">YYY</div> -->
-                            <div class="p-2" style="margin-right:4.3rem; font-weight: bold;">Ημέρες τηλεργασίας</div>
-                            <div class="p-2">Από</div>
-                            <div class="p-2 date"><%= employee.susFrom %></div>
-                            <div class="p-2">Μέχρι</div>
-                            <div class="p-2 date"><%= employee.susUntil %></div>
-                            <div class="p-2">
-                              <form action="/employer/<%- currentUser._id %>/undo_tele_status/<%- employee._id %>" method="POST">
-                                <button class="btn btn-secondary btn-block">Επαναφορά</button>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <% } %> 
-                      <% if(employee.suspensionOfContact) { %> 
-                      <div class="p-2">
-                        <div class="container">
-                          <div class="d-flex flex-row ">
-                            <!-- <div class="p-2">YYY</div> -->
-                            <div class="p-2" style="margin-right:4rem; font-weight: bold;">Αναστολή σύμβασης</div>
-                            <div class="p-2">Από</div>
-                            <div class="p-2 date"><%= employee.susFrom %></div>
-                            <div class="p-2">Μέχρι</div>
-                            <div class="p-2 date"><%= employee.susUntil %></div>
-                            <div class="p-2">
-                              <form action="/employer/<%- currentUser._id %>/undo_suspension_status/<%- employee._id %>" method="POST">
-                                <button class="btn btn-secondary btn-block">Επαναφορά</button>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <% } %> 
-                    </div>
-                    <% } %> 
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-          <% } %>
-        </table>
-        <% } %>
-
-      </div>
-    </div>
-
-    <div class="container topMargin40 bottomMargin40">
-      <div class="d-flex flex-column justify-content-center align-items-center">
-        <div class="p-2">
-          <button type="button" id="btnNewEmployee" class="btn btn-primary">ΔΗΜΙΟΥΡΓΙΑ ΝΕΟΥ ΥΠΑΛΛΗΛΟΥ</button>
-        </div>
-        <div class="p-2">
-          <form action="/employer/<%- currentUser._id %>/new_employee" method="POST" id="formNewEmployee"
-            style="visibility: hidden;">
-            <div class="form-group">
-              <label for="AMKA"><b>Εισάγετε το AMKA του καινούργιου υπαλλήλου</b></label>
-              <input type="text" class="form-control" id="AMKA" aria-describedby="emailHelp" placeholder="Εισάγετε ΑΜΚΑ"
-                name="amka">
+    <div class="container-xl">
+      <div class="table-responsive">
+        <div class="table-wrapper">
+          <div class="table-title">
+            <div class="row">
+              <div class="col-sm-5">
+                <h2>Το Προσωπικό <b>μου</b></h2>
+              </div>
+              <div class="col-sm-7">
+                <a id="btnNewEmployee" href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i>
+                  <span>Προσθήκη
+                    εργαζομένου</span></a>
+              </div>
             </div>
-          </form>
+          </div>
+          <div>
+            <% if(!(currentUser.employees.length)) {%>
+            <div style="margin: 100px 0px; font-size: 2em;">Δεν έχετε υπαλλήλους</div>
+            <% } else {%>
+            <table id="employeesTable" class="table table-striped table-hover">
+              <% for(let employee of employer.employees) {%>
+              <thead>
+                <tr>
+                  <th scope="col">Όνομα</th>
+                  <th scope="col">Επώνυμο</th>
+                  <th scope="col">ΑΜΚΑ</th>
+                  <th scope="col">Τηλέφωνο</th>
+                  <th scope="col">Ηλεκτρονική Διεύθυνση</th>
+                  <th scope="col">Κατάσταση εργασίας</th>
+                  <% if(!employee.telework || !employee.suspensionOfContact) {%>
+                  <th scope="col">Επιλογές</th>
+                  <th scope="col">Από</th>
+                  <th scope="col">Μέχρι</th>
+                  <th scope="col"></th>
+                  <% } else { %>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <% } %>
+                  <th scope="col">Περισσότερες πληροφορίες</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= employee.firstName%></td>
+                  <td><%= employee.lastName%></td>
+                  <td><%= employee.amka%></td>
+                  <td><%= employee.phone%></td>
+                  <td><%= employee.email%></td>
+                  <% if(employee.telework) { %>
+                  <td><span class="status text-warning align-items-center">&bull;</span>Τηλεργασία</td>
+                  <% } %>
+                  <% if(employee.suspensionOfContact) { %>
+                  <td><span class="status text-danger align-items-center">&bull;</span>Αναστολή</td>
+                  <% } else { %>
+                  <td><span class="status text-success align-items-center">&bull;</span>Εργαζομενος</td>
+                  <% } %>
+                  <% if(!employee.telework || !employee.suspensionOfContact) {%>
+                  <form action="/employer/<%- currentUser._id %>/manip_status/<%- employee._id %>" method="POST">
+                    <td>
+                      <select class="browser-default custom-select" name="action">
+                        <option selected="">Επιλέξτε δράση</option>
+                        <% if(!employee.telework) { %>
+                        <option value="1">Τηλεργασία</option>
+                        <% } %>
+                        <% if(!employee.suspensionOfContact) { %>
+                        <option value="2">Αναστολή σύμβασης εργασίας</option>
+                        <% } %>
+                      </select></td>
+                    <td><input type="date" name="from" style="width: 129px;"></td>
+                    <td><input type="date" name="until" style="width: 129px;"></td>
+                    <td><button class="btn btn-primary btn-block" style="height: 30px; width: 40px;"><i
+                          class="fa fa-check" aria-hidden="true"></i></button></td>
+                    <!-- <td><i class="fa fa-check" aria-hidden="true"></i> -->
+                  </form>
+                  <% } else {%>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <% } %>
+                  <!-- <td><i class="fa fa-check" aria-hidden="true"></i> -->
+                  <td>
+                    <button type="button" class="btn" data-toggle="collapse" data-target="#<%= employee._id %>">
+                      <i class="fa fa-cog" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <!-- <td onclick="getEmployeeInfo(this)"><i class="fa fa-info-circle" aria-hidden="true"></i> -->
+                </tr>
+
+                <tr id="employeesDetailRow">
+                  <td colspan="8">
+                    <div class="collapse out" id="<%= employee._id %>">
+                      <div class="container">
+                        <% if(!employee.permitSpecialPurpose.permited && !employee.telework && !employee.suspensionOfContact) {%>
+                        <div class="d-flex flex-column">
+                          <div>Δεν υπάρχει κάτι.</div>
+                        </div>
+                        <% } else { %>
+                        <div class="d-flex flex-column">
+                          <% if(employee.permitSpecialPurpose.permited) {%>
+                          <div class="p-2">
+                            <div class="container">
+                              <div class="d-flex flex-row ">
+                                <!-- <div class="p-2">YYY</div> -->
+                                <div class="p-2" style="margin-right:3.6rem; font-weight: bold;">Άδεια ειδικού σκοπoύ
+                                </div>
+                                <div class="p-2">Από</div>
+                                <div class="p-2 date"><%= employee.permitSpecialPurpose.from %></div>
+                                <div class="p-2">Μέχρι</div>
+                                <div class="p-2 date"><%= employee.permitSpecialPurpose.until %></div>
+                                <div class="p-2">
+                                  <form
+                                    action="/employer/<%- currentUser._id %>/undo_perm_special_purpose_status/<%- employee._id %>"
+                                    method="POST">
+                                    <button class="btn btn-secondary btn-block">Επαναφορά</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <% } %>
+                          <% if( employee.telework) { %>
+                          <div class="p-2">
+                            <div class="container">
+                              <div class="d-flex flex-row ">
+                                <!-- <div class="p-2">YYY</div> -->
+                                <div class="p-2" style="margin-right:4.3rem; font-weight: bold;">Ημέρες τηλεργασίας
+                                </div>
+                                <div class="p-2">Από</div>
+                                <div class="p-2 date"><%= employee.susFrom %></div>
+                                <div class="p-2">Μέχρι</div>
+                                <div class="p-2 date"><%= employee.susUntil %></div>
+                                <div class="p-2">
+                                  <form action="/employer/<%- currentUser._id %>/undo_tele_status/<%- employee._id %>"
+                                    method="POST">
+                                    <button class="btn btn-secondary btn-block">Επαναφορά</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <% } %>
+                          <% if(employee.suspensionOfContact) { %>
+                          <div class="p-2">
+                            <div class="container">
+                              <div class="d-flex flex-row ">
+                                <!-- <div class="p-2">YYY</div> -->
+                                <div class="p-2" style="margin-right:4rem; font-weight: bold;">Αναστολή σύμβασης</div>
+                                <div class="p-2">Από</div>
+                                <div class="p-2 date"><%= employee.susFrom %></div>
+                                <div class="p-2">Μέχρι</div>
+                                <div class="p-2 date"><%= employee.susUntil %></div>
+                                <div class="p-2">
+                                  <form
+                                    action="/employer/<%- currentUser._id %>/undo_suspension_status/<%- employee._id %>"
+                                    method="POST">
+                                    <button class="btn btn-secondary btn-block">Επαναφορά</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <% } %>
+                        </div>
+                        <% } %>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+              <% } %>
+            </table>
+            <% } %>
+
+          </div>
         </div>
       </div>
     </div>
+
+  </div>
+
+  <div class="container topMargin40 bottomMargin40">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <!-- <div class="p-2">
+        <button type="button" id="btnNewEmployee" class="btn btn-primary">ΔΗΜΙΟΥΡΓΙΑ ΝΕΟΥ ΥΠΑΛΛΗΛΟΥ</button>
+      </div> -->
+      <div class="p-2">
+        <form action="/employer/<%- currentUser._id %>/new_employee" method="POST" id="formNewEmployee"
+          style="visibility: hidden;">
+          <div class="form-group">
+            <label for="AMKA"><b>Εισάγετε το AMKA του καινούργιου υπαλλήλου</b></label>
+            <input type="text" class="form-control" id="AMKA" aria-describedby="emailHelp" placeholder="Εισάγετε ΑΜΚΑ"
+              name="amka">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
 
   <%- include('../partials/footer'); %>
@@ -248,7 +286,7 @@
     function getEmployeeInfo(e) {
       var table = document.getElementById("employeesTable");
       var $employeesDetailRow = $("#employeesDetailRow");
-      $employeesDetailRow.css("visibility", "visible") 
+      $employeesDetailRow.css("visibility", "visible")
       var $row = $(e).closest("tr");
       $employeesDetailRow.insertAfter($row);
     }
