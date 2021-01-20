@@ -16,7 +16,7 @@
 
 run `node app.js`
 
-and then in a browser open `localhost:8080' 
+and then in a browser open ` localhost:8080 ` 
 
 
 ### Contributors
