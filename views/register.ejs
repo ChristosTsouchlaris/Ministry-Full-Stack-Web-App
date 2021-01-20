@@ -30,13 +30,13 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <input class="form-control" placeholder="Όνομα" type="text" name="firstName">
+            <input class="form-control" placeholder="Όνομα" pattern="[^()/><\&#$@][\\\x22,;|]+" title="Δεν επιτρέπονται ειδικοί χαρακτήρες" type="text" name="firstName">
         </div> <!-- form-group// -->
         <div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <input class="form-control" placeholder="Επίθετο" type="text" name="lastName">
+            <input class="form-control" placeholder="Επίθετο" pattern="[^()/><\&#$@][\\\x22,;|]+" title="Δεν επιτρέπονται ειδικοί χαρακτήρες" type="text" name="lastName">
         </div> <!-- form-group// -->
         <div class="form-group input-group">
             <div class="input-group-prepend">
@@ -71,8 +71,8 @@
                 <span class="input-group-text"> <i class="fa fa-building"></i> </span>
             </div>
             <select class="form-control" name="occupation">
-                <option selected=""> Απασχόληση </option>
-                <option>Εργαζόμενος</option>
+                <!-- <option selected=""> Απασχόληση </option> -->
+                <option selected="">Εργαζόμενος</option>
                 <option>Εργοδότης</option>
                 <option>Συνταξιούχος</option>
                 <option>Άνεργος</option>
@@ -82,7 +82,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
             </div>
-            <input class="form-control" placeholder="Κωδικός TAXISNET" type="password" name="password">
+            <input class="form-control" placeholder="Κωδικός TAXISNET" pattern=".{6,}" title="Ο κωδικός πρέπει να περιέχει 6 ή περισσότερους χαρακτήρες" type="password" name="password">
         </div> <!-- form-group// -->
         <div class="form-group">
             <button id="btn-signup" class="btn btn-primary btn-block"> Δημιουργία Λογαριασμού </button>
