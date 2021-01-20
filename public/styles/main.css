@@ -244,7 +244,8 @@ body {
 }
 .footer-clean {
   padding: 60px 0;
-  background-color: rgb(228, 219, 219); /* footer color */
+  /* background-color: rgb(228, 219, 219); footer color */
+  background-image: linear-gradient(to bottom, rgb(250, 250, 250), rgb(7, 78, 232));
   /* color: #4b4c4d; */
 }
 .footer-clean h3 {
